@@ -8,7 +8,7 @@ let arrayUsers = [
 ]
 let stockCamisetas = [];
 let userCarrito = [];
-let valorCarrito = 0;
+let valorCarrito = 0; 
 
 let bandera = true;
 
