@@ -1,12 +1,5 @@
 const textoMenu = `Bienvenido a RetroFutbol! tu lugar para comprar las camisetas de tus equipos favoritos \n`;
 const textoOpciones = `\n1 Ingrese su usuario \n2 Crear usuario \n3 Ver camisetas disponibles \n4 Cargar stock de camisetas \n5 Agregar al carrito \n6 Ver carrito \n7 Borrar carrito \n8 Salir`;
-let login = false;
-let userLog;
-let arrayUsers = [
-    new Usuario("test", "test", 1),
-    new Usuario("demo", "demo", 1),
-    new Usuario("prueba", "prueba", 1),
-]
 let userCarrito = [];
 let valorCarrito = 0;
 
@@ -21,8 +14,7 @@ while (bandera) {
 
             let userIngresado = new Usuario(userLogin, passLogin, 1);
 
-            userIngresado.obtenerUsuario(arrayUsers, login);
-            userLog = userIngresado;
+            userIngresado.obtenerUsuario();
 
             break;
         case 2:
@@ -30,9 +22,7 @@ while (bandera) {
             passNew = prompt("Contraseña");
 
             let userNuevo = new Usuario(userNew, passNew, 2);
-            userNuevo.crearUsuario(userNuevo, arrayUsers)
-
-            alert(`Su usuario ${userNuevo.name} se ha creado correctamente!`)
+            userNuevo.crearUsuario()
 
             break;
         case 3:
@@ -67,22 +57,6 @@ while (bandera) {
             break;
     }
 }
-
-function cargarCamisetas() {
-    let nuevaCamiseta = []
-    let propsCamiseta = ["Nombre", "Precio", "Año", "Cantidad"];
-
-    for (let i = 0; i < propsCamiseta.length; i++) {
-        nuevaCamiseta.push(prompt(propsCamiseta[i]));
-    }
-
-    stockCamisetas.push({
-        nombre: nuevaCamiseta[0],
-        precio: nuevaCamiseta[1],
-        año: nuevaCamiseta[2],
-        cantidad: nuevaCamiseta[3]
-    })
-};
 
 function cargarCarrito(searchName) {
     let findCasaca = stockCamisetas.find(camiseta => camiseta.nombre === searchName);
