@@ -1,5 +1,5 @@
 const textoMenu = `Bienvenido a RetroFutbol! tu lugar para comprar las camisetas de tus equipos favoritos \n`;
-const textoOpciones = `\n1 Ingrese su usuario \n2 Crear usuario \n3 Cargar stock de camisetas \n4 Ver camisetas disponibles \n5 Agregar al carrito \n6 Ver carrito \n7 Borrar carrito \n8 Salir`;
+const textoOpciones = `\n1 Ingrese su usuario \n2 Crear usuario \n3 Ver camisetas disponibles \n4 Cargar stock de camisetas \n5 Agregar al carrito \n6 Ver carrito \n7 Borrar carrito \n8 Salir`;
 let login = false;
 let userLog;
 let arrayUsers = [
@@ -7,7 +7,6 @@ let arrayUsers = [
     new Usuario("demo", "demo", 1),
     new Usuario("prueba", "prueba", 1),
 ]
-let stockCamisetas = [];
 let userCarrito = [];
 let valorCarrito = 0;
 
@@ -37,20 +36,28 @@ while (bandera) {
 
             break;
         case 3:
-            cargarCamisetas();
+            mostrarCamisetas();
             break;
         case 4:
-            mostrarCamisetas()
+            id = stockCamisetas.length+1;
+            nombre = prompt("Club");
+            año = prompt("Año"); 
+            talle = prompt("Talle"); 
+            precio = prompt("Precio"); 
+            cantidad = prompt("Cantidad"); 
+
+            let camisetaNueva = new Camiseta(id, nombre, año, talle, precio, cantidad);
+            camisetaNueva.cargarCamiseta();
             break;
         case 5:
             searchCamiseta = prompt("Ingrese el nombre de la camiseta");
             cargarCarrito(searchCamiseta)
             break;
         case 6:
-            mostrarCarrito()
+            bandera = false;
             break;
         case 7:
-            borrarCarrito()
+            bandera = false;
             break;
         case 8:
             bandera = false;
@@ -76,15 +83,6 @@ function cargarCamisetas() {
         cantidad: nuevaCamiseta[3]
     })
 };
-
-function mostrarCamisetas() {
-    let mensajeCamisetas = "Camisetas en stock \n";
-    for (i = 0; i < stockCamisetas.length; i++) {
-        mensajeCamisetas += `Nombre: ${stockCamisetas[i].nombre} Año: ${stockCamisetas[i].año} Precio: ${stockCamisetas[i].precio} Cantidad: ${stockCamisetas[i].cantidad}\n `;
-    }
-
-    alert(mensajeCamisetas);
-}
 
 function cargarCarrito(searchName) {
     let findCasaca = stockCamisetas.find(camiseta => camiseta.nombre === searchName);
