@@ -6,7 +6,6 @@ class Usuario {
     }
 
     obtenerUsuario(arrayUsers) {
-        console.log(arrayUsers, 'PRUEBAA');
 
         let userFind = arrayUsers.find(usuario => usuario.name === this.name && usuario.pass === this.pass)
 
@@ -18,7 +17,7 @@ class Usuario {
         }
     }
 
-    // crearUsuario(arrayUsers) {
-    //     arrayUsers.push(constructor(this.name, this.pass, this.profile));
-    // }
+    crearUsuario(userNuevo,arrayUsers) {
+        arrayUsers.push(userNuevo);
+    }
 }

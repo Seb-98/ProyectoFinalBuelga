@@ -13,12 +13,6 @@ let valorCarrito = 0;
 
 let bandera = true;
 
-const crearUsuario = (userNew) => {
-    arrayUsers.push(userNew)
-
-    return userNew;
-}
-
 while (bandera) {
     let opcion = Number(prompt(`${textoMenu} ${textoOpciones}`))
     switch (opcion) {
@@ -37,9 +31,9 @@ while (bandera) {
             passNew = prompt("Contraseña");
 
             let userNuevo = new Usuario(userNew, passNew, 2);
-            nuevoUsuario = crearUsuario(userNuevo)
+            userNuevo.crearUsuario(userNuevo, arrayUsers)
 
-            alert(`Su usuario ${nuevoUsuario.name} se ha creado correctamente!`)
+            alert(`Su usuario ${userNuevo.name} se ha creado correctamente!`)
 
             break;
         case 3:
