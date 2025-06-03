@@ -1,30 +1,45 @@
 const textoMenu = `Bienvenido a RetroFutbol! tu lugar para comprar las camisetas de tus equipos favoritos \n`;
 const textoOpciones = `\n1 Ingrese su usuario \n2 Crear usuario \n3 Cargar stock de camisetas \n4 Ver camisetas disponibles \n5 Agregar al carrito \n6 Ver carrito \n7 Borrar carrito \n8 Salir`;
 let login = false;
+let userLog;
 let arrayUsers = [
-    { user: "test", pass: "test", perfil: "1" },
-    { user: "demo", pass: "demo", perfil: "1" },
-    { user: "prueba", pass: "prueba", perfil: "1" },
+    new Usuario("test", "test", 1),
+    new Usuario("demo", "demo", 1),
+    new Usuario("prueba", "prueba", 1),
 ]
 let stockCamisetas = [];
 let userCarrito = [];
-let valorCarrito = 0; 
+let valorCarrito = 0;
 
 let bandera = true;
+
+const crearUsuario = (userNew) => {
+    arrayUsers.push(userNew)
+
+    return userNew;
+}
 
 while (bandera) {
     let opcion = Number(prompt(`${textoMenu} ${textoOpciones}`))
     switch (opcion) {
         case 1:
-            obtenerUsuario()
+            let userLogin = prompt("Usuario");
+            let passLogin = prompt("Contraseña");
+
+            let userIngresado = new Usuario(userLogin, passLogin, 1);
+
+            userIngresado.obtenerUsuario(arrayUsers, login);
+            userLog = userIngresado;
 
             break;
         case 2:
             userNew = prompt("Usuario");
             passNew = prompt("Contraseña");
-            nuevoUsuario = crearUsuario(userNew, passNew)
 
-            alert(`Su usuario ${nuevoUsuario} se ha creado correctamente!`)
+            let userNuevo = new Usuario(userNew, passNew, 2);
+            nuevoUsuario = crearUsuario(userNuevo)
+
+            alert(`Su usuario ${nuevoUsuario.name} se ha creado correctamente!`)
 
             break;
         case 3:
@@ -75,26 +90,6 @@ function mostrarCamisetas() {
     }
 
     alert(mensajeCamisetas);
-}
-
-function obtenerUsuario() {
-    let userLogin = prompt("Usuario")
-    let passLogin = prompt("Contraseña")
-
-    let userFind = arrayUsers.find(usuario => usuario.user === userLogin);
-    let passFind = arrayUsers.find(usuario => usuario.pass === passLogin);
-    if (userFind == null || passFind == null) {
-        alert("Error al ingresar usuario");
-    } else {
-        alert("Exito!")
-        login = true;
-    }
-}
-
-const crearUsuario = (userNew, passNew) => {
-    arrayUsers.push({ user: userNew, pass: passNew, perfil: "2" })
-
-    return userNew;
 }
 
 function cargarCarrito(searchName) {
