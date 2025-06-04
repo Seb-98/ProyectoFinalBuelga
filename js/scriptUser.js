@@ -14,7 +14,7 @@ class Usuario {
         } else {
             alert("Exito!")
             login = true;
-            sessionStorage.setItem('userLog', JSON.stringify(this));            
+            sessionStorage.setItem('userLog', JSON.stringify(this));
         }
     }
 
