@@ -1,7 +1,9 @@
 const textoMenu = `Bienvenido a RetroFutbol! tu lugar para comprar las camisetas de tus equipos favoritos \n`;
-const textoOpciones = `\n1 Ingrese su usuario \n2 Crear usuario \n3 Ver camisetas disponibles \n4 Cargar stock de camisetas \n5 Agregar al carrito \n6 Ver carrito \n7 Borrar carrito \n8 Salir`;
+const textoOpciones = `\n1 Ingrese su usuario \n2 Crear usuario \n3 Cerrar sesion \n4 Ver camisetas disponibles \n5 Cargar stock de camisetas \n6 Agregar al carrito \n7 Ver carrito \n8 Borrar carrito \n9 Salir`;
 
 let bandera = true;
+
+sessionStorage.clear();
 
 objectCarrito = new Carrito();
 
@@ -26,9 +28,18 @@ while (bandera) {
 
             break;
         case 3:
-            mostrarCamisetas();
+            if (validarUsuario()) {
+                cerrarSesion();
+            }
             break;
         case 4:
+            if (validarUsuario()) {
+                if (validarPerfilUsuarioAdmin()) {
+                    mostrarCamisetas();
+                }
+            }
+            break;
+        case 5:
             id = stockCamisetas.length + 1;
             nombre = prompt("Club");
             año = prompt("Año");
@@ -39,19 +50,19 @@ while (bandera) {
             let camisetaNueva = new Camiseta(id, nombre, año, talle, precio, cantidad);
             camisetaNueva.cargarCamiseta();
             break;
-        case 5:
+        case 6:
             searchCamiseta = prompt("Ingrese el id de la camiseta");
             cantidadCamiseta = prompt("Ingrese el cantidad de camisetas");
 
             objectCarrito.cargarCarrito(searchCamiseta, cantidadCamiseta)
             break;
-        case 6:
+        case 7:
             objectCarrito.mostrarCarrito()
             break;
-        case 7:
+        case 8:
             objectCarrito.borrarCarrito()
             break;
-        case 8:
+        case 9:
             bandera = false
             break;
         default:

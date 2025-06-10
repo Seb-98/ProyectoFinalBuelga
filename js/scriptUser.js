@@ -14,7 +14,7 @@ class Usuario {
         } else {
             alert("Exito!")
             login = true;
-            sessionStorage.setItem('userLog', JSON.stringify(this));
+            sessionStorage.setItem('userLog', JSON.stringify(userFind));
         }
     }
 
@@ -34,3 +34,31 @@ let arrayUsers = [
 let login = false;
 let userLog;
 
+validarUsuario = () => {
+    if (sessionStorage.getItem('userLog') == null) {
+        alert("Debe iniciar sesion para continuar con esta accion")
+        return false;
+    }
+
+    return true;
+}
+
+validarPerfilUsuarioAdmin = () => {
+    if (login) {
+
+        userValidate = JSON.parse(sessionStorage.getItem('userLog'));
+
+        if (userValidate.profile != 1) {
+            alert("Su perfil de usuario no tiene acceso a esta accion")
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function cerrarSesion() {
+    sessionStorage.clear();
+    login = false;
+    alert("Cerro sesion correctamente");
+}
