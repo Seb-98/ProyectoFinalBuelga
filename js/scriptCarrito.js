@@ -1,43 +1,70 @@
-let userCarrito = [];
-let valorCarrito = 0;
-
-function cargarCarrito(id) {
-
-    let findCasaca = stockCamisetas.find(camiseta => camiseta.id === Number(id));
-
-    if (findCasaca != null) {
-        alert(`Usted a elegido Nombre ${findCasaca.nombre} Año ${findCasaca.año} Precio ${findCasaca.precio} Cantidad ${findCasaca.cantidad}`)
-        userCarrito.push(findCasaca);
-        valorCarrito = valorCarrito + Number(findCasaca.precio);
-        mostrarCarrito()
-    } else {
-        alert("La camiseta buscada  no se encuentra disponible!");
-    }
-}
-
-function mostrarCarrito() {
-    let msjCarrito = 'Su carrito actual es \n';
-
-    for (i = 0; i < userCarrito.length; i++) {
-        msjCarrito += `nombre ${userCarrito[i].nombre} año ${userCarrito[i].año} precio ${userCarrito[i].precio} cantidad ${userCarrito[i].cantidad} \n`
+class Carrito {
+    constructor() {
+        this.userCarrito = [];
+        this.valorCarrito = 0;
     }
 
-    msjCarrito += `\n Y su valor total es: ${valorCarrito} `;
+    cargarCarrito(id, cantidad) {
+        let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === Number(id) && camiseta.cantidad>0);
 
-    alert(msjCarrito)
-}
+        if (findCamiseta != null) {
+            if(cantidad > findCamiseta.cantidad){
+                alert(`No hay tantas camisetas en stock, quedan ${findCamiseta.cantidad}` )
+                return;
+            }
 
-function borrarCarrito() {
-    let alertMsg = prompt("Esta seguro de borrar su carrito? 1-Si 2-No");
-    if (alertMsg == 1) {
-        userCarrito = [];
-        valorCarrito = 0;
-        alert("Su carrito se ha reiniciado correctamente")
+            let findCamisetaCarrito = this.userCarrito.find(item => item.id === Number(id));
+
+            if (!findCamisetaCarrito) {
+                const camisetaParaCarrito = new Camiseta(
+                    findCamiseta.id,
+                    findCamiseta.nombre,
+                    findCamiseta.año,
+                    findCamiseta.talle,
+                    findCamiseta.precio,
+                    Number(cantidad)
+                );
+
+                alert(`Usted ha elegido Nombre ${findCamiseta.nombre} Año ${findCamiseta.año} Precio ${findCamiseta.precio} Cantidad ${cantidad}`);
+                this.userCarrito.push(camisetaParaCarrito);
+                this.valorCarrito += camisetaParaCarrito.precio * camisetaParaCarrito.cantidad;
+            } else {
+                findCamisetaCarrito.cantidad += Number(cantidad);
+                this.valorCarrito += findCamiseta.precio * Number(cantidad);
+            }
+
+            restarStockCamisetas(id, cantidad);
+            this.mostrarCarrito()
+
+        } else {
+            alert("La camiseta buscada no se encuentra disponible!");
+        }
     }
-    else if (alertMsg == 2) {
-        alert("Volviendo al menu")
+
+    mostrarCarrito() {
+        let msjCarrito = 'Su carrito actual es \n';
+
+        for (let i = 0; i < this.userCarrito.length; i++) {
+            msjCarrito += `nombre ${this.userCarrito[i].nombre} año ${this.userCarrito[i].año} precio ${this.userCarrito[i].precio} cantidad ${this.userCarrito[i].cantidad} \n`
+        }
+
+        msjCarrito += `\n Y su valor total es: ${this.valorCarrito} `;
+
+        alert(msjCarrito)
     }
-    else {
-        alert("No es una opcion valida")
+
+    borrarCarrito() {
+        let alertMsg = prompt("Esta seguro de borrar su carrito? 1-Si 2-No");
+        if (alertMsg == 1) {
+            this.userCarrito = [];
+            this.valorCarrito = 0;
+            alert("Su carrito se ha reiniciado correctamente")
+        }
+        else if (alertMsg == 2) {
+            alert("Volviendo al menu")
+        }
+        else {
+            alert("No es una opcion valida")
+        }
     }
 }

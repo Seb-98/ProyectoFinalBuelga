@@ -3,6 +3,8 @@ const textoOpciones = `\n1 Ingrese su usuario \n2 Crear usuario \n3 Ver camiseta
 
 let bandera = true;
 
+objectCarrito = new Carrito();
+
 while (bandera) {
     let opcion = Number(prompt(`${textoMenu} ${textoOpciones}`))
     switch (opcion) {
@@ -39,13 +41,15 @@ while (bandera) {
             break;
         case 5:
             searchCamiseta = prompt("Ingrese el id de la camiseta");
-            cargarCarrito(searchCamiseta)
+            cantidadCamiseta = prompt("Ingrese el cantidad de camisetas");
+
+            objectCarrito.cargarCarrito(searchCamiseta, cantidadCamiseta)
             break;
         case 6:
-            mostrarCarrito()
+            objectCarrito.mostrarCarrito()
             break;
         case 7:
-            borrarCarrito()
+            objectCarrito.borrarCarrito()
             break;
         case 8:
             bandera = false

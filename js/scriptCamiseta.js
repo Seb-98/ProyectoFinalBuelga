@@ -43,3 +43,11 @@ function mostrarCamisetas() {
 
     alert(mensajeCamisetas);
 }
+
+function restarStockCamisetas(id, cantidad) {
+    console.log(id)
+
+    let camiseta = stockCamisetas.find(camiseta => camiseta.id === Number(id));
+    console.log(camiseta);
+    camiseta.cantidad = Number(camiseta.cantidad) - Number(cantidad);
+}
