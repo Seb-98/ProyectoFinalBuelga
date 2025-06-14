@@ -1,0 +1,50 @@
+body {
+    margin: 5%;
+    background-color: beige;
+}
+
+p, h4 {
+    margin: 5px;
+}
+
+.containerColumns {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.containerCamisetas {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.containerCarrito {
+    width: 30%;
+    padding: 10px;
+    background-color: #f0f0a7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.cardCamiseta {
+    width: 125px;
+    padding: 15px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+.cardCarrito {
+    border: 1px solid black;
+    width: auto;
+    padding: 10px;
+    margin:5px;
+    border-radius: 10px;
+}

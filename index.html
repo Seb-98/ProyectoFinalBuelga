@@ -5,10 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <div class="containerPrincipal">
+        <h2>Retro Futbol</h2>
+
+        <div class="containerColumns">
+
+            <div class="containerCamisetas" id="containerCamisetas"></div>
+
+            <div class="containerCarrito" id="containerCarrito">
+                <h4>Carrito</h4>
+                <span id="totalCarrito">Total: $0</span>
+                <button id="borrarCarrito">Borrar Carrito</button>
+                <div id="containerItemsCarrito"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="./js/scriptUser.js"></script>
     <script src="./js/scriptCamiseta.js"></script>
     <script src="./js/scriptCarrito.js"></script>

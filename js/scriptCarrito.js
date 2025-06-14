@@ -4,67 +4,52 @@ class Carrito {
         this.valorCarrito = 0;
     }
 
-    cargarCarrito(id, cantidad) {
-        let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === Number(id) && camiseta.cantidad>0);
+    cargarCarrito(id) {
+        let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === id)
+        // let findCamisetaCarrito = this.userCarrito.find(item => item.id === id);     //para cuando tenga que validar la cantidad de camisetas
 
-        if (findCamiseta != null) {
-            if(cantidad > findCamiseta.cantidad){
-                alert(`No hay tantas camisetas en stock, quedan ${findCamiseta.cantidad}` )
-                return;
-            }
+            const camisetaParaCarrito = new Camiseta(
+                findCamiseta.id,
+                findCamiseta.nombre,
+                findCamiseta.año,
+                findCamiseta.talle,
+                findCamiseta.precio,
+                1
+            );
 
-            let findCamisetaCarrito = this.userCarrito.find(item => item.id === Number(id));
+            this.userCarrito.push(camisetaParaCarrito);
+            this.valorCarrito += camisetaParaCarrito.precio;
 
-            if (!findCamisetaCarrito) {
-                const camisetaParaCarrito = new Camiseta(
-                    findCamiseta.id,
-                    findCamiseta.nombre,
-                    findCamiseta.año,
-                    findCamiseta.talle,
-                    findCamiseta.precio,
-                    Number(cantidad)
-                );
-
-                alert(`Usted ha elegido Nombre ${findCamiseta.nombre} Año ${findCamiseta.año} Precio ${findCamiseta.precio} Cantidad ${cantidad}`);
-                this.userCarrito.push(camisetaParaCarrito);
-                this.valorCarrito += camisetaParaCarrito.precio * camisetaParaCarrito.cantidad;
-            } else {
-                findCamisetaCarrito.cantidad += Number(cantidad);
-                this.valorCarrito += findCamiseta.precio * Number(cantidad);
-            }
-
-            restarStockCamisetas(id, cantidad);
-            this.mostrarCarrito()
-
-        } else {
-            alert("La camiseta buscada no se encuentra disponible!");
-        }
+        // restarStockCamisetas(id, cantidad);
+        this.mostrarCarrito()
     }
 
     mostrarCarrito() {
-        let msjCarrito = 'Su carrito actual es \n';
+        let containerCarrito = document.getElementById('containerItemsCarrito');
+        let totalCarrito = document.getElementById('totalCarrito');
+        let msjCarrito = "";
 
-        for (let i = 0; i < this.userCarrito.length; i++) {
-            msjCarrito += `nombre ${this.userCarrito[i].nombre} año ${this.userCarrito[i].año} precio ${this.userCarrito[i].precio} cantidad ${this.userCarrito[i].cantidad} \n`
-        }
-
-        msjCarrito += `\n Y su valor total es: ${this.valorCarrito} `;
-
-        alert(msjCarrito)
+        this.userCarrito.forEach(item => {
+            msjCarrito += `
+                <div class="cardCarrito">
+                    <p>Nombre: ${item.nombre}</p>
+                    <p>Talle: ${item.talle}</p>
+                    <p>Año: ${item.año}</p>
+                    <p>Precio: ${item.precio}</p>
+                </div>`;
+        })
+        containerCarrito.innerHTML = msjCarrito;
+        totalCarrito.innerHTML = `Total: $${this.valorCarrito}`;
     }
 
     borrarCarrito() {
-        let alertMsg = prompt("Esta seguro de borrar su carrito? 1-Si 2-No");
-        if (alertMsg == 1) {
-            this.userCarrito = [];
-            this.valorCarrito = 0;
-            alert("Su carrito se ha reiniciado correctamente")
-        }
-        else if (alertMsg == 2) {
-            alert("Volviendo al menu")
-        }
-        else {
-            alert("No es una opcion valida")
-        }
+        let totalCarrito = document.getElementById('totalCarrito');
+        let containerCarrito = document.getElementById('containerItemsCarrito');
+        
+        containerCarrito.innerHTML = "";
+        totalCarrito.innerHTML = `Total: $0`;
+                this.userCarrito = [];
+
+        this.valorCarrito = 0;
     }
 }
