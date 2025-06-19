@@ -7,11 +7,6 @@ class Camiseta {
         this.precio = precio;
         this.cantidad = cantidad;
     }
-
-    cargarCamiseta() {
-        stockCamisetas.push(this);
-        alert(`Agregaste la camiseta de ${this.nombre} del año ${this.año}`)
-    }
 }
 
 function mostrarCamisetas() {
