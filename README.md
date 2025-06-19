@@ -1,7 +1,9 @@
 # RetroFutbol
 <!-- 
- La idea del proyecto es una tienda online de camisetas.
- Podes ingresar con un usuario que puede tener un perfil 1
- que es administrador y un usuario perfil 2 que es comprador
- y ambos van a tener sus respectivas funciones.
+Los usuarios de prueba son
+user: test pass:test
+user: demo pass:demo
+user: prueba pass:prueba
+
+se tiene que iniciar sesion para cargar camisetas al carrito
 -->
