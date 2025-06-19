@@ -48,3 +48,13 @@ p, h4 {
     margin:5px;
     border-radius: 10px;
 }
+
+.userLogin{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 15px;
+}
+
+.invisible{
+    display:none;
+}

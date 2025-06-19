@@ -1,26 +1,27 @@
 class Carrito {
-    constructor() {
-        this.userCarrito = [];
-        this.valorCarrito = 0;
+    constructor(carrito, valor) {
+        this.userCarrito = carrito;
+        this.valorCarrito = valor;
     }
 
     cargarCarrito(id) {
         let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === id)
-        // let findCamisetaCarrito = this.userCarrito.find(item => item.id === id);     //para cuando tenga que validar la cantidad de camisetas
 
-            const camisetaParaCarrito = new Camiseta(
-                findCamiseta.id,
-                findCamiseta.nombre,
-                findCamiseta.año,
-                findCamiseta.talle,
-                findCamiseta.precio,
-                1
-            );
+        const camisetaParaCarrito = new Camiseta(
+            findCamiseta.id,
+            findCamiseta.nombre,
+            findCamiseta.año,
+            findCamiseta.talle,
+            findCamiseta.precio,
+            1
+        );
 
-            this.userCarrito.push(camisetaParaCarrito);
-            this.valorCarrito += camisetaParaCarrito.precio;
+        this.userCarrito.push(camisetaParaCarrito);
+        this.valorCarrito += camisetaParaCarrito.precio;
+        
+        sessionStorage.setItem('carritoStore', JSON.stringify(this.userCarrito));
+        sessionStorage.setItem('carritoValue', this.valorCarrito);
 
-        // restarStockCamisetas(id, cantidad);
         this.mostrarCarrito()
     }
 
@@ -45,11 +46,12 @@ class Carrito {
     borrarCarrito() {
         let totalCarrito = document.getElementById('totalCarrito');
         let containerCarrito = document.getElementById('containerItemsCarrito');
-        
+
         containerCarrito.innerHTML = "";
         totalCarrito.innerHTML = `Total: $0`;
-                this.userCarrito = [];
-
+        this.userCarrito = [];
         this.valorCarrito = 0;
+        sessionStorage.removeItem('carritoStore');
+        sessionStorage.removeItem('carritoValue');
     }
 }

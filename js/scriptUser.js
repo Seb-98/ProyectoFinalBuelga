@@ -1,21 +1,21 @@
 class Usuario {
-    constructor(name, pass, profile) {
+    constructor(name, pass) {
         this.name = name;
         this.pass = pass;
-        this.profile = profile;
     }
 
     obtenerUsuario() {
+        let login = false;
 
         let userFind = arrayUsers.find(usuario => usuario.name === this.name && usuario.pass === this.pass)
 
-        if (userFind == null) {
-            alert("El usuario que intenta ingresar no existe");
-        } else {
-            alert("Exito!")
-            login = true;
+        if (userFind != null) {
             sessionStorage.setItem('userLog', JSON.stringify(userFind));
+            login = true;
+        } else {
+            alert("El usuario que intenta ingresar no existe");
         }
+        return login;
     }
 
     crearUsuario() {
@@ -26,13 +26,10 @@ class Usuario {
 }
 
 let arrayUsers = [
-    new Usuario("test", "test", 1),
-    new Usuario("demo", "demo", 1),
-    new Usuario("prueba", "prueba", 1),
+    new Usuario("test", "test"),
+    new Usuario("demo", "demo"),
+    new Usuario("prueba", "prueba"),
 ]
-
-let login = false;
-let userLog;
 
 validarUsuario = () => {
     if (sessionStorage.getItem('userLog') == null) {
@@ -41,24 +38,4 @@ validarUsuario = () => {
     }
 
     return true;
-}
-
-validarPerfilUsuarioAdmin = () => {
-    if (login) {
-
-        userValidate = JSON.parse(sessionStorage.getItem('userLog'));
-
-        if (userValidate.profile != 1) {
-            alert("Su perfil de usuario no tiene acceso a esta accion")
-            return false;
-        }
-    }
-
-    return true;
-}
-
-function cerrarSesion() {
-    sessionStorage.clear();
-    login = false;
-    alert("Cerro sesion correctamente");
 }
