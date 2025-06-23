@@ -1,5 +1,16 @@
 
 let objectCarrito;
+let inputUser = document.getElementById('inputUser');
+let inputPassword = document.getElementById('inputPassword');
+let userMsg = document.querySelector(".userMsgDiv");
+let loginDiv = document.querySelector(".loginDiv");
+
+//A REALIZAR
+//apenas te corrijan commitea cambios
+//Aceptar Compra
+//Redireccion a pantalla de compra realizada
+//eliminar item de carrito
+//mejoras visuales
 
 principal();
 
@@ -9,22 +20,7 @@ function principal() {
     loginUser();
     logoutUser();
     mostrarCamisetas();
-    selectCamiseta()
     borrarCarrito();
-}
-
-function selectCamiseta() {
-    let buttons = document.querySelectorAll('.selectCamiseta')
-    let buttonsArray = Array.from(buttons)
-
-    buttonsArray.forEach(e => {
-        e.addEventListener("click", (e) => {
-
-            if (validarUsuario()) {
-                objectCarrito.cargarCarrito(e.target.parentNode.id);
-            }
-        })
-    })
 }
 
 function borrarCarrito() {
@@ -36,10 +32,6 @@ function borrarCarrito() {
 
 function loginUser() {
     let btnLogin = document.getElementById('loginButton');
-    let inputUser = document.getElementById('inputUser');
-    let inputPassword = document.getElementById('inputPassword');
-    let loginDiv = document.querySelector(".loginDiv");
-    let userMsg = document.querySelector(".userMsgDiv");
 
     btnLogin.addEventListener("click", () => {
         let userLogin = new Usuario(inputUser.value, inputPassword.value)
@@ -54,10 +46,6 @@ function loginUser() {
 
 function logoutUser() {
     let logoutButton = document.getElementById("logoutButton");
-    let userMsg = document.querySelector(".userMsgDiv");
-    let loginDiv = document.querySelector(".loginDiv");
-    let inputUser = document.getElementById('inputUser');
-    let inputPassword = document.getElementById('inputPassword');
 
     logoutButton.addEventListener("click", () => {
         userMsg.classList.add('invisible');
@@ -72,8 +60,6 @@ function logoutUser() {
 
 function validaUserLogin() {
     let userSession = JSON.parse(sessionStorage.getItem('userLog'));
-    let loginDiv = document.querySelector(".loginDiv");
-    let userMsg = document.querySelector(".userMsgDiv");
 
     if (userSession != null) {
         loginDiv.classList.add('invisible');

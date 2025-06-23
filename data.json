@@ -1,0 +1,146 @@
+[
+  {
+    "id": "cmst1",
+    "nombre": "San Lorenzo",
+    "año": "13/14",
+    "talle": "S",
+    "precio": 9000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst2",
+    "nombre": "San Lorenzo",
+    "año": "13/14",
+    "talle": "M",
+    "precio": 9000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst3",
+    "nombre": "San Lorenzo",
+    "año": "13/14",
+    "talle": "L",
+    "precio": 9000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst4",
+    "nombre": "Boca",
+    "año": "00/01",
+    "talle": "S",
+    "precio": 10000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst5",
+    "nombre": "Boca",
+    "año": "00/01",
+    "talle": "M",
+    "precio": 10000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst6",
+    "nombre": "Boca",
+    "año": "00/01",
+    "talle": "L",
+    "precio": 10000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst7",
+    "nombre": "River",
+    "año": "18/19",
+    "talle": "S",
+    "precio": 8000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst8",
+    "nombre": "River",
+    "año": "18/19",
+    "talle": "M",
+    "precio": 8000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst9",
+    "nombre": "River",
+    "año": "18/19",
+    "talle": "L",
+    "precio": 8000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst10",
+    "nombre": "Independiente",
+    "año": "16/17",
+    "talle": "S",
+    "precio": 7000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst11",
+    "nombre": "Independiente",
+    "año": "16/17",
+    "talle": "M",
+    "precio": 7000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst12",
+    "nombre": "Independiente",
+    "año": "16/17",
+    "talle": "L",
+    "precio": 7000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst13",
+    "nombre": "Racing",
+    "año": "24/25",
+    "talle": "S",
+    "precio": 7000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst14",
+    "nombre": "Racing",
+    "año": "24/25",
+    "talle": "M",
+    "precio": 7000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst15",
+    "nombre": "Racing",
+    "año": "24/25",
+    "talle": "L",
+    "precio": 7000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst16",
+    "nombre": "Argentina",
+    "año": "2022",
+    "talle": "S",
+    "precio": 12000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst17",
+    "nombre": "Argentina",
+    "año": "2022",
+    "talle": "M",
+    "precio": 12000,
+    "cantidad": 3
+  },
+  {
+    "id": "cmst18",
+    "nombre": "Argentina",
+    "año": "2022",
+    "talle": "L",
+    "precio": 12000,
+    "cantidad": 3
+  }
+]
