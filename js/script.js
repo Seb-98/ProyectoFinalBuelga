@@ -26,7 +26,7 @@ function principal() {
 function borrarCarrito() {
     let btnBorrar = document.getElementById('borrarCarrito');
     btnBorrar.addEventListener("click", () => {
-        objectCarrito.borrarCarrito();
+        objectCarrito.borrarObjCarrito();
     })
 }
 

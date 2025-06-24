@@ -5,24 +5,31 @@ class Carrito {
     }
 
     cargarCarrito(id) {
-        let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === id)
-
-        const camisetaParaCarrito = new Camiseta(
-            findCamiseta.id,
-            findCamiseta.nombre,
-            findCamiseta.año,
-            findCamiseta.talle,
-            findCamiseta.precio,
-            1
-        );
-
-        this.userCarrito.push(camisetaParaCarrito);
-        this.valorCarrito += camisetaParaCarrito.precio;
+        let findCamisetaCarrito = this.userCarrito.find(item => item.id === id)
         
-        sessionStorage.setItem('carritoStore', JSON.stringify(this.userCarrito));
-        sessionStorage.setItem('carritoValue', this.valorCarrito);
+        if(findCamisetaCarrito == null){
+            let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === id)
 
-        this.mostrarCarrito()
+            const camisetaParaCarrito = new Camiseta(
+                findCamiseta.id,
+                findCamiseta.nombre,
+                findCamiseta.año,
+                findCamiseta.talle,
+                findCamiseta.precio,
+                1
+            );
+
+            this.userCarrito.push(camisetaParaCarrito);
+            this.valorCarrito += camisetaParaCarrito.precio;
+            
+            sessionStorage.setItem('carritoStore', JSON.stringify(this.userCarrito));
+            sessionStorage.setItem('carritoValue', this.valorCarrito);
+
+            this.mostrarCarrito()
+        }
+        else{
+            alert("Ya agrego esta camiseta")
+        }
     }
 
     mostrarCarrito() {
@@ -32,18 +39,18 @@ class Carrito {
 
         this.userCarrito.forEach(item => {
             msjCarrito += `
-                <div class="cardCarrito">
-                    <p>Nombre: ${item.nombre}</p>
-                    <p>Talle: ${item.talle}</p>
-                    <p>Año: ${item.año}</p>
-                    <p>Precio: ${item.precio}</p>
+                <div class="cardCarrito" id="item-${item.id}">
+                    <p>${item.nombre} - Talle ${item.talle} - ${item.año} - $${item.precio}</p>
+                    <button class="deleteItem" value="${item.id}">X</button>
                 </div>`;
         })
         containerCarrito.innerHTML = msjCarrito;
         totalCarrito.innerHTML = `Total: $${this.valorCarrito}`;
+
+        borrarItemCarrito();
     }
 
-    borrarCarrito() {
+    borrarObjCarrito() {
         let totalCarrito = document.getElementById('totalCarrito');
         let containerCarrito = document.getElementById('containerItemsCarrito');
 
@@ -54,4 +61,28 @@ class Carrito {
         sessionStorage.removeItem('carritoStore');
         sessionStorage.removeItem('carritoValue');
     }
+
+    borrarObjItemCarrito(id) {
+        let totalCarrito = document.getElementById('totalCarrito');
+
+        let itemDelete = this.userCarrito.find(item => item.id == id);
+
+        this.valorCarrito = this.valorCarrito - Number(itemDelete.precio);
+        this.userCarrito = this.userCarrito.filter(item => item.id != id);
+        sessionStorage.setItem('carritoStore', JSON.stringify(this.userCarrito));
+        sessionStorage.setItem('carritoValue', this.valorCarrito);
+        totalCarrito.innerHTML = `Total: $${this.valorCarrito}`;
+    }
+}
+
+function borrarItemCarrito() {
+    let btnsDelete = document.querySelectorAll('.deleteItem');
+    let btnsDeleteArray = Array.from(btnsDelete);
+
+    btnsDeleteArray.forEach(e => {
+        e.addEventListener("click", (e) => {
+            objectCarrito.borrarObjItemCarrito(e.target.value);
+            e.target.parentNode.remove();
+        })
+    })
 }
