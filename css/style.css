@@ -58,3 +58,11 @@ p, h4 {
 .invisible{
     display:none;
 }
+
+.infoClient{
+    display: inline-grid;
+}
+
+.inputInfoCliente{
+    margin-bottom: 10px;
+}

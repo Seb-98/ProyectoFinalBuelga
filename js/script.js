@@ -6,10 +6,8 @@ let userMsg = document.querySelector(".userMsgDiv");
 let loginDiv = document.querySelector(".loginDiv");
 
 //A REALIZAR
-//apenas te corrijan commitea cambios
 //Aceptar Compra
 //Redireccion a pantalla de compra realizada
-//eliminar item de carrito
 //mejoras visuales
 
 principal();
@@ -21,6 +19,7 @@ function principal() {
     logoutUser();
     mostrarCamisetas();
     borrarCarrito();
+    redirectCompra();
 }
 
 function borrarCarrito() {
@@ -78,4 +77,17 @@ function validarCarritoSession() {
     } else {
         objectCarrito = new Carrito([], 0);
     }
+}
+
+function redirectCompra(){
+    let btnCompra = document.getElementById("btnCompra");
+
+    btnCompra.addEventListener("click", (e) => {
+
+        if(JSON.parse(sessionStorage.getItem('carritoValue')) == null){
+            alert("Debe seleccionar alguna camiseta para continuar");
+            e.preventDefault();
+            return;
+        }
+    })
 }
