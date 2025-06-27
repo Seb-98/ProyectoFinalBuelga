@@ -81,10 +81,11 @@ function validarCarritoSession() {
 
 function redirectCompra(){
     let btnCompra = document.getElementById("btnCompra");
+    let carritoValue = JSON.parse(sessionStorage.getItem('carritoValue'))
 
     btnCompra.addEventListener("click", (e) => {
 
-        if(JSON.parse(sessionStorage.getItem('carritoValue')) == null){
+        if(carritoValue == null || carritoValue == 0){
             alert("Debe seleccionar alguna camiseta para continuar");
             e.preventDefault();
             return;

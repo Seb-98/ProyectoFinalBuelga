@@ -5,7 +5,7 @@ class Carrito {
     }
 
     cargarCarrito(id) {
-        let findCamisetaCarrito = this.userCarrito.find(item => item.id === id)
+        let findCamisetaCarrito = this.encontrarItemCarrito(id);
         
         if(findCamisetaCarrito == null){
             let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === id)
@@ -56,6 +56,7 @@ class Carrito {
 
         borrarItemCarrito(this);
         sumarItemCarrito(this);
+        restarItemCarrito(this);
     }
 
     borrarObjCarrito() {
@@ -73,7 +74,7 @@ class Carrito {
     borrarObjItemCarrito(id) {
         let totalCarrito = document.getElementById('totalCarrito');
 
-        let itemDelete = this.userCarrito.find(item => item.id == id);
+        let itemDelete = this.encontrarItemCarrito(id);
 
         this.valorCarrito -= (Number(itemDelete.precio) * Number(itemDelete.cantidad));
         this.userCarrito = this.userCarrito.filter(item => item.id != id);
@@ -83,7 +84,7 @@ class Carrito {
     }
 
     sumarCantidad(id){
-        let itemCamiseta = this.userCarrito.find(item => item.id === id)
+        let itemCamiseta = this.encontrarItemCarrito(id);
 
         if (itemCamiseta) {
             itemCamiseta.cantidad += 1;
@@ -93,6 +94,25 @@ class Carrito {
             sessionStorage.setItem('carritoValue', this.valorCarrito);
             this.mostrarCarrito();
         }
+    }
+
+    restarCantidad(id){
+        let itemCamiseta = this.encontrarItemCarrito(id);
+
+        if(itemCamiseta){
+            itemCamiseta.cantidad -= 1;
+            this.valorCarrito -= itemCamiseta.precio;
+
+            if(itemCamiseta.cantidad == 0){
+               this.borrarObjItemCarrito(id); 
+            }
+
+            this.mostrarCarrito();
+        }
+    }
+
+    encontrarItemCarrito(id){
+        return this.userCarrito.find(item => item.id === id);
     }
 }
 
@@ -115,6 +135,17 @@ function sumarItemCarrito(arrayCarrito){
     sumBtnArray.forEach(e => {
         e.addEventListener("click", () => {
             arrayCarrito.sumarCantidad(e.value);
+        })
+    })
+}
+
+function restarItemCarrito(arrayCarrito){
+    let restBtn = document.querySelectorAll(".restCantItem");
+    let restBtnArray = Array.from(restBtn);
+
+    restBtnArray.forEach(e => {
+        e.addEventListener("click", () =>{
+            arrayCarrito.restarCantidad(e.value);
         })
     })
 }
