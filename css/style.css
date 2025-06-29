@@ -1,6 +1,7 @@
 body {
     margin: 5%;
     background-color: beige;
+    font-family: sans-serif;
 }
 
 p, h4 {
@@ -38,7 +39,6 @@ p, h4 {
     border: 1px solid black;
     background-color: white;
     border-radius: 10px;
-    font-family: sans-serif;
 }
 
 .cardCarrito {
@@ -65,4 +65,12 @@ p, h4 {
 
 .inputInfoCliente{
     margin-bottom: 10px;
+}
+
+.inputError{
+    border: 1px solid red;
+}
+
+.userMsgDiv{
+    margin-right:15px;
 }

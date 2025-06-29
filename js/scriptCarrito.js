@@ -28,7 +28,13 @@ class Carrito {
             this.mostrarCarrito()
         }
         else{
-            alert("Ya agrego esta camiseta")
+            Toastify({
+                text: "Ya agrego esta camiseta",
+                duration: 2000,
+                style: {
+                    background: "green",
+                }
+            }).showToast();
         }
     }
 

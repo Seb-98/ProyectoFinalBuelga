@@ -34,15 +34,28 @@ function realizarCompra() {
         let validacion = true;
         arrayInputs.forEach(element => {
 
-            if (element.value == "") {
+            if (element.value.trim() === "") {
                 validacion = false;
+                element.classList.add('inputError');
+            } else {
+                element.classList.remove('inputError');
             }
         })
 
         if (validacion) {
-            alert("compra realizada con exito")
+            Swal.fire({
+                icon: "success",
+                title: "Su compra ha sido realizada con exito",
+            })
         } else {
-            alert("complete los campos para continuar con la compra")
+
+            Toastify({
+                text: "Debe completar todos los campos para continuar",
+                duration: 3000,
+                style: {
+                    background: "red",
+                }
+            }).showToast();
         }
 
     })

@@ -13,14 +13,19 @@ class Usuario {
             sessionStorage.setItem('userLog', JSON.stringify(userFind));
             login = true;
         } else {
-            alert("El usuario que intenta ingresar no existe");
+            Swal.fire({
+                icon: "error",
+                title: "El usuario que intenta ingresar no existe",
+            })
         }
         return login;
     }
 
-    crearUsuario() {
-        alert(`Su usuario ${this.name} se ha creado correctamente!`)
-
+    crearUsuario() {        
+        Swal.fire({
+            icon: "success",
+            title: `Su usuario ${this.name} se ha creado correctamente!`,
+        })
         arrayUsers.push(this);
     }
 }
@@ -33,7 +38,10 @@ let arrayUsers = [
 
 validarUsuario = () => {
     if (sessionStorage.getItem('userLog') == null) {
-        alert("Debe iniciar sesion para continuar con esta accion")
+        Swal.fire({
+            icon: "error",
+            title: "Debe iniciar sesion para continuar con esta accion",
+        })
         return false;
     }
 

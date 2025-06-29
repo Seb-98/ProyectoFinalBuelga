@@ -5,14 +5,10 @@ let inputPassword = document.getElementById('inputPassword');
 let userMsg = document.querySelector(".userMsgDiv");
 let loginDiv = document.querySelector(".loginDiv");
 
-//A REALIZAR
-//Aceptar Compra
-//Redireccion a pantalla de compra realizada
-//mejoras visuales
-
 principal();
 
 function principal() {
+    console.log(sessionStorage)
     validarCarritoSession();
     validaUserLogin();
     loginUser();
@@ -52,7 +48,7 @@ function logoutUser() {
         inputUser.value = "";
         inputPassword.value = "";
 
-        objectCarrito.borrarCarrito();
+        objectCarrito.borrarObjCarrito();
         sessionStorage.removeItem('userLog');
     })
 }
@@ -79,16 +75,39 @@ function validarCarritoSession() {
     }
 }
 
-function redirectCompra(){
+function redirectCompra() {
     let btnCompra = document.getElementById("btnCompra");
-    let carritoValue = JSON.parse(sessionStorage.getItem('carritoValue'))
 
     btnCompra.addEventListener("click", (e) => {
+        e.preventDefault();
 
-        if(carritoValue == null || carritoValue == 0){
-            alert("Debe seleccionar alguna camiseta para continuar");
-            e.preventDefault();
+        let carritoValue = JSON.parse(sessionStorage.getItem('carritoValue'))
+
+        if (carritoValue == null || carritoValue == 0) {
+
+            Toastify({
+                text: "Debe seleccionar alguna camiseta para continuar",
+                duration: 2000,
+                style: {
+                    background: "red",
+                }
+            }).showToast();
+
             return;
+        } else {
+            Toastify({
+                text: "Cargando informacion...",
+                duration: 2000,
+                style: {
+                    background: "yellow",
+                    color: "black"
+                }
+            }).showToast();
+
+            setTimeout(() => {
+                window.location.href = btnCompra.getAttribute("href");
+            }, 1500);
+
         }
     })
 }
