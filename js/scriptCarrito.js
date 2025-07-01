@@ -47,8 +47,8 @@ class Carrito {
             msjCarrito += `
                 <div class="cardCarrito" id="item-${item.id}">
                     <p>
-                        ${item.nombre} - Talle ${item.talle} - ${item.año} - $${item.precio}
-                        <button class="deleteItem" value="${item.id}">X</button>
+                        ${item.nombre} - ${item.talle} - ${item.año} - $${item.precio}
+                        <button class="deleteItem danger-btn" value="${item.id}">X</button>
                     </p>
                     <div>
                         <button class="restCantItem" value="${item.id}">-</button>

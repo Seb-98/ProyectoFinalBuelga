@@ -3,6 +3,7 @@ principalCompra();
 function principalCompra() {
     mostrarCarritoDetalle();
     realizarCompra();
+    cancelarCompra();
 }
 
 function mostrarCarritoDetalle() {
@@ -58,5 +59,25 @@ function realizarCompra() {
             }).showToast();
         }
 
+    })
+}
+
+function cancelarCompra() {
+    let cancelarBtn = document.getElementById('cancelarBtn');
+
+    cancelarBtn.addEventListener('click', () => {
+
+        Toastify({
+            text: "Redireccionando...",
+            duration: 2000,
+            style: {
+                background: "yellow",
+                color: "black"
+            }
+        }).showToast();
+
+        setTimeout(() => {
+            window.location.href = "/index.html";
+        }, 1500);
     })
 }

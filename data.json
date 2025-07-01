@@ -2,127 +2,145 @@
   {
     "id": "cmst1",
     "nombre": "San Lorenzo",
-    "año": "13/14",
+    "año": "24/25",
     "talle": "S",
-    "precio": 9000
+    "precio": 9000,
+    "imagen": "images/san-lorenzo-2025.webp"
   },
   {
     "id": "cmst2",
     "nombre": "San Lorenzo",
-    "año": "13/14",
+    "año": "24/25",
     "talle": "M",
-    "precio": 9000
+    "precio": 9000,
+    "imagen": "images/san-lorenzo-2025.webp"
   },
   {
     "id": "cmst3",
     "nombre": "San Lorenzo",
-    "año": "13/14",
+    "año": "24/25",
     "talle": "L",
-    "precio": 9000
+    "precio": 9000,
+    "imagen": "images/san-lorenzo-2025.webp"
   },
   {
     "id": "cmst4",
     "nombre": "Boca",
-    "año": "00/01",
+    "año": "25/26",
     "talle": "S",
-    "precio": 10000
+    "precio": 10000,
+    "imagen": "images/boca-2025.webp"
   },
   {
     "id": "cmst5",
     "nombre": "Boca",
-    "año": "00/01",
+    "año": "25/26",
     "talle": "M",
-    "precio": 10000
+    "precio": 10000,
+    "imagen": "images/boca-2025.webp"
   },
   {
     "id": "cmst6",
     "nombre": "Boca",
-    "año": "00/01",
+    "año": "25/26",
     "talle": "L",
-    "precio": 10000
+    "precio": 10000,
+    "imagen": "images/boca-2025.webp"
   },
   {
     "id": "cmst7",
-    "nombre": "River",
-    "año": "18/19",
+    "nombre": "River Alternativa",
+    "año": "25/26",
     "talle": "S",
-    "precio": 8000
+    "precio": 8000,
+    "imagen": "images/river-alt-2025.webp"
   },
   {
     "id": "cmst8",
-    "nombre": "River",
-    "año": "18/19",
+    "nombre": "River Alternativa",
+    "año": "25/26",
     "talle": "M",
-    "precio": 8000
+    "precio": 8000,
+    "imagen": "images/river-alt-2025.webp"
   },
   {
     "id": "cmst9",
-    "nombre": "River",
-    "año": "18/19",
+    "nombre": "River Alternativa",
+    "año": "25/26",
     "talle": "L",
-    "precio": 8000
+    "precio": 8000,
+    "imagen": "images/river-alt-2025.webp"
   },
   {
     "id": "cmst10",
     "nombre": "Independiente",
-    "año": "16/17",
+    "año": "25/26",
     "talle": "S",
-    "precio": 7000
+    "precio": 7000,
+    "imagen": "images/independiente-2025.webp"
   },
   {
     "id": "cmst11",
     "nombre": "Independiente",
-    "año": "16/17",
+    "año": "25/26",
     "talle": "M",
-    "precio": 7000
+    "precio": 7000,
+    "imagen": "images/independiente-2025.webp"
   },
   {
     "id": "cmst12",
     "nombre": "Independiente",
-    "año": "16/17",
+    "año": "25/26",
     "talle": "L",
-    "precio": 7000
+    "precio": 7000,
+    "imagen": "images/independiente-2025.webp"
   },
   {
     "id": "cmst13",
     "nombre": "Racing",
     "año": "24/25",
     "talle": "S",
-    "precio": 7000
+    "precio": 7000,
+    "imagen": "images/racing-2025.webp"
   },
   {
     "id": "cmst14",
     "nombre": "Racing",
     "año": "24/25",
     "talle": "M",
-    "precio": 7000
+    "precio": 7000,
+    "imagen": "images/racing-2025.webp"
   },
   {
     "id": "cmst15",
     "nombre": "Racing",
     "año": "24/25",
     "talle": "L",
-    "precio": 7000
+    "precio": 7000,
+    "imagen": "images/racing-2025.webp"
   },
   {
     "id": "cmst16",
     "nombre": "Argentina",
     "año": "2022",
     "talle": "S",
-    "precio": 12000
+    "precio": 12000,
+    "imagen": "images/argentina-2022.webp"
   },
   {
     "id": "cmst17",
     "nombre": "Argentina",
     "año": "2022",
     "talle": "M",
-    "precio": 12000
+    "precio": 12000,
+    "imagen": "images/argentina-2022.webp"
   },
   {
     "id": "cmst18",
     "nombre": "Argentina",
     "año": "2022",
     "talle": "L",
-    "precio": 12000
+    "precio": 12000,
+    "imagen": "images/argentina-2022.webp"
   }
 ]

@@ -105,7 +105,7 @@ function redirectCompra() {
             }).showToast();
 
             setTimeout(() => {
-                window.location.href = btnCompra.getAttribute("href");
+                window.location.href = "/resumenCompra.html";
             }, 1500);
 
         }
