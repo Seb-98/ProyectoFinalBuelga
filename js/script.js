@@ -1,14 +1,11 @@
 
 let objectCarrito;
-let inputUser = document.getElementById('inputUser');
-let inputPassword = document.getElementById('inputPassword');
 let userMsg = document.querySelector(".userMsgDiv");
 let loginDiv = document.querySelector(".loginDiv");
 
 principal();
 
 function principal() {
-    console.log(sessionStorage)
     validarCarritoSession();
     validaUserLogin();
     loginUser();
@@ -29,13 +26,7 @@ function loginUser() {
     let btnLogin = document.getElementById('loginButton');
 
     btnLogin.addEventListener("click", () => {
-        let userLogin = new Usuario(inputUser.value, inputPassword.value)
-
-        if (userLogin.obtenerUsuario()) {
-            loginDiv.classList.add('invisible');
-            userMsg.classList.remove('invisible');
-            userMsg.innerHTML = `Bienvenido ${userLogin.name}!`;
-        }
+        modalLogin();
     })
 }
 
@@ -45,8 +36,6 @@ function logoutUser() {
     logoutButton.addEventListener("click", () => {
         userMsg.classList.add('invisible');
         loginDiv.classList.remove('invisible');
-        inputUser.value = "";
-        inputPassword.value = "";
 
         objectCarrito.borrarObjCarrito();
         sessionStorage.removeItem('userLog');
@@ -110,4 +99,30 @@ function redirectCompra() {
 
         }
     })
+}
+
+function modalLogin(){
+    Swal.fire({
+        title: "Iniciar Sesion",
+        html: `
+            <input type="text" placeholder="Usuario" id="nameUser"></input>
+            <input type="password" placeholder="Contraseña" id="passUser"></input>
+        `,
+        showCancelButton: true,
+        confirmButtonText: `Enviar`,
+        cancelButtonText:`Cancelar`
+    }).then((result) => {
+        let nameUser = document.getElementById("nameUser");
+        let passUser = document.getElementById("passUser");
+
+        let userLogin = new Usuario(nameUser.value, passUser.value)
+
+        if(result.isConfirmed){
+            if (userLogin.obtenerUsuario()) {
+                loginDiv.classList.add('invisible');
+                userMsg.classList.remove('invisible');
+                userMsg.innerHTML = `Bienvenido ${userLogin.name}!`;
+            }
+        }
+    });
 }
