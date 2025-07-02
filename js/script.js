@@ -10,6 +10,7 @@ function principal() {
     validaUserLogin();
     loginUser();
     logoutUser();
+    crearUsuario();
     mostrarCamisetas();
     borrarCarrito();
     redirectCompra();
@@ -125,4 +126,49 @@ function modalLogin(){
             }
         }
     });
+}
+
+function crearUsuario(){
+    let newUserBtn = document.getElementById('newUserButton');
+
+    newUserBtn.addEventListener("click", () => {
+        modalNewUser();
+    })
+}
+
+function modalNewUser(){
+    Swal.fire({
+        title: "Nuevo Usuario",
+        html: `
+            <input type="text" placeholder="Usuario" id="newNameUser"></input>
+            <input type="password" placeholder="Contraseña" id="newPassUser"></input>
+            <input type="password" placeholder="Contraseña" id="validatePassUser"></input>
+        `,
+        showCancelButton: true,
+        confirmButtonText: `Enviar`,
+        cancelButtonText:`Cancelar`
+    }).then((result)=>{
+        let newNameUser = document.getElementById("newNameUser");
+        let newPassUser = document.getElementById("newPassUser");
+        let validatePassUser = document.getElementById("validatePassUser");
+
+        if(result.isConfirmed){
+            if(validateNewPassword(newPassUser.value,validatePassUser.value)){
+                console.log("ta bom");
+                let userLogin = new Usuario(newNameUser.value, newPassUser.value)
+                userLogin.crearUsuario();
+
+            }else{
+                console.log("no ta bom")
+            }
+        }
+    })
+}
+
+function validateNewPassword(pass, validatePass){
+    if(pass !== validatePass){
+        return false;
+    }
+
+    return true;
 }
