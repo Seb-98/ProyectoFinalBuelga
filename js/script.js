@@ -2,6 +2,7 @@
 let objectCarrito;
 let userMsg = document.querySelector(".userMsgDiv");
 let loginDiv = document.querySelector(".loginDiv");
+let logoutButton = document.getElementById("logoutButton");
 
 principal();
 
@@ -32,10 +33,10 @@ function loginUser() {
 }
 
 function logoutUser() {
-    let logoutButton = document.getElementById("logoutButton");
 
     logoutButton.addEventListener("click", () => {
         userMsg.classList.add('invisible');
+        logoutButton.classList.add('invisible');
         loginDiv.classList.remove('invisible');
 
         objectCarrito.borrarObjCarrito();
@@ -50,6 +51,8 @@ function validaUserLogin() {
         loginDiv.classList.add('invisible');
         userMsg.classList.remove('invisible');
         userMsg.innerHTML = `Bienvenido ${userSession.name}!`;
+        logoutButton.classList.remove('invisible');
+
     }
 }
 
@@ -122,6 +125,8 @@ function modalLogin(){
             if (userLogin.obtenerUsuario()) {
                 loginDiv.classList.add('invisible');
                 userMsg.classList.remove('invisible');
+                logoutButton.classList.remove('invisible');
+
                 userMsg.innerHTML = `Bienvenido ${userLogin.name}!`;
             }
         }

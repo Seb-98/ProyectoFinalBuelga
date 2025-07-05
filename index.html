@@ -10,29 +10,33 @@
 </head>
 
 <body>
-    <div class="containerPrincipal">
+    <div class="headerCartel"><p class="textHeaderCartel">Envios a todo el pais!</p></div>
+
+    <div class="headerOptions" id="headerOptions">
         <h2>Retro Futbol</h2>
 
-        <div class="userLogin" id="userLogin">
+        <div class="userDiv">
             <div class="loginDiv">
-                <button id="newUserButton">Crear Usuario</button>
-                <button id="loginButton">Iniciar Sesion</button>
+                <button id="newUserButton" class="commonBtn">Crear Usuario</button>
+                <button id="loginButton" class="commonBtn">Iniciar Sesion</button>
             </div>
             <div class="userMsgDiv invisible">
                 <span id="userMsgValue"></span>
             </div>
-            <button id="logoutButton">Cerrar Sesion</button>
+            <button id="logoutButton" class="commonBtn invisible">Cerrar Sesion</button>
         </div>
+    </div>
+
+    <div class="containerPrincipal">
 
         <div class="containerColumns">
 
             <div class="containerCamisetas" id="containerCamisetas"></div>
 
             <div class="containerCarrito" id="containerCarrito">
-                <h4>Carrito</h4>
                 <span id="totalCarrito" class="itemDetail">Total: $0</span>
 
-                <div class="containerColumns">
+                <div class="divButtonsCarrito">
                     <button id="btnCompra" class="big-btn success-btn">Comprar</a>
                     <button id="borrarCarrito" class="big-btn danger-btn">Borrar Carrito</button>
                 </div>
