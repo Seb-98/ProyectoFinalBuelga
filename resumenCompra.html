@@ -5,50 +5,82 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Futbol</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="containerPrincipal">
+    <div class="headerCartel">
+        <p class="textHeaderCartel">Envios a todo el pais!</p>
+    </div>
+    <div class="headerOptions">
         <h2>Retro Futbol</h2>
-        <div class="containerColumns">
+    </div>
 
-            <div class="infoClient">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
                 <h3>Datos del cliente</h3>
 
-                <label class="labelInput">Nombre</label>
-                <input type="text" class="inputInfoCliente">
+                <div class="row gap-2">
+                    <div class="col p-0">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="inputInfoCliente form-control">
+                    </div>
+                    <div class="col p-0">
+                        <label class="form-label">Apellido</label>
+                        <input type="text" class="inputInfoCliente form-control">
+                    </div>
+                </div>
 
-                <label class="labelInput">Apellido</label>
-                <input type="text" class="inputInfoCliente">
+                <div class="row gap-2">
+                    <div class="col p-0">
+                        <label class="form-label">Telefono</label>
+                        <input type="text" class="inputInfoCliente form-control">
+                    </div>
+                    <div class="col p-0">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="inputInfoCliente form-control">
+                    </div>
+                </div>
 
-                <label class="labelInput">Telefono</label>
-                <input type="text" class="inputInfoCliente">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <label class="form-label">Dirección</label>
+                        <input type="text" class="form-control inputInfoCliente">
+                    </div>
+                    <div class="col-12 p-0">
+                        <label class="form-label">Número Tarjeta</label>
+                        <input type="text" class="form-control inputInfoCliente">
+                    </div>
+                </div>
 
-                <label class="labelInput">Email</label>
-                <input type="text" class="inputInfoCliente">
+                <div class="row gap-2">
+                    <div class="col p-0">
+                        <label class="form-label">Fecha Vto</label>
+                        <input type="text" class="inputInfoCliente form-control">
+                    </div>
+                    <div class="col-3 p-0">
+                        <label class="form-label">Cod.Seg</label>
+                        <input type="text" class="inputInfoCliente form-control">
+                    </div>
+                </div>
 
-                <label class="labelInput">Direccion</label>
-                <input type="text" class="inputInfoCliente">
-
-                <label class="labelInput">Numero Tarjeta</label>
-                <input type="text" class="inputInfoCliente">
-
-                <label class="labelInput">Fecha Vto</label>
-                <input type="text" class="inputInfoCliente">
-
-                <label class="labelInput">Codigo de seguridad</label>
-                <input type="text" class="inputInfoCliente">
-
-                <button id="compraBtn"  class="action-compra success-btn">Realizar Compra</button>
+                <button id="compraBtn" class="action-compra success-btn">Realizar Compra</button>
                 <button id="cancelarBtn" class="action-compra danger-btn">Cancelar Compra</button>
             </div>
 
-            <div class="infoCarrito">
+            <div class="col-lg-4">
                 <h3>Resumen de tu compra</h3>
-                <div class="detalleCarrito"></div>
                 <p id="totalCarritoDetalle" class="itemDetail"></p>
+                <div class="detalleCarrito"></div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="">
+
+                </div>
             </div>
         </div>
     </div>

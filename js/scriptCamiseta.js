@@ -24,14 +24,16 @@ async function mostrarCamisetas() {
 
             mensajeCamisetas += `
                 <div class="cardCamiseta" id="${element.id}">
-                    <div>
-                        <img class="imgCamiseta"src="${element.imagen}"></img>
+                <img class="imgCamiseta"src="${element.imagen}"></img>
+                    <div class="dataCamiseta">
                         <p class="textCamiseta"><span class="itemDetail">Equipo:</span> ${element.nombre}</p>
                         <p class="textCamiseta"><span class="itemDetail">Temporada:</span> ${element.año}</p>
                         <p class="textCamiseta"><span class="itemDetail">Talle:</span> ${element.talle}</p>
                         <p class="textCamiseta"><span class="itemDetail">Precio:</span> $${element.precio}</p>
                     </div>
-                    <button class="selectCamiseta big-btn success-btn">Agregar</button>
+                    <div class="center">
+                        <button class="selectCamiseta big-btn success-btn">Agregar</button>
+                    </div>
                 </div>
             `;
         });
