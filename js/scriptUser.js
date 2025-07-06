@@ -7,7 +7,9 @@ class Usuario {
     obtenerUsuario() {
         let login = false;
 
-        let userFind = arrayUsers.find(usuario => usuario.name === this.name && usuario.pass === this.pass)
+        let sessionUsers = JSON.parse(sessionStorage.getItem('usersStorage'));
+
+        let userFind = sessionUsers.find(usuario => usuario.name === this.name && usuario.pass === this.pass)
 
         if (userFind != null) {
             sessionStorage.setItem('userLog', JSON.stringify(userFind));
@@ -26,7 +28,9 @@ class Usuario {
             icon: "success",
             title: `Su usuario ${this.name} se ha creado correctamente!`,
         })
+
         arrayUsers.push(this);
+        sessionStorage.setItem('usersStorage', JSON.stringify(arrayUsers))
     }
 }
 
@@ -35,6 +39,12 @@ let arrayUsers = [
     new Usuario("demo", "demo"),
     new Usuario("prueba", "prueba"),
 ]
+
+function setUsers() {
+    if (sessionStorage.getItem('usersStorage') == null) {
+        sessionStorage.setItem('usersStorage', JSON.stringify(arrayUsers))
+    }
+}
 
 validarUsuario = () => {
     if (sessionStorage.getItem('userLog') == null) {

@@ -56,7 +56,7 @@ function selectCamiseta() {
         e.addEventListener("click", (e) => {
 
             if (validarUsuario()) {
-                objectCarrito.cargarCarrito(e.target.parentNode.id);
+                objectCarrito.cargarCarrito(e.target.parentNode.parentNode.id);
             }
         })
     })

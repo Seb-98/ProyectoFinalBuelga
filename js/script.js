@@ -7,6 +7,7 @@ let logoutButton = document.getElementById("logoutButton");
 principal();
 
 function principal() {
+    setUsers()
     validarCarritoSession();
     validaUserLogin();
     loginUser();
@@ -109,8 +110,8 @@ function modalLogin(){
     Swal.fire({
         title: "Iniciar Sesion",
         html: `
-            <input type="text" placeholder="Usuario" id="nameUser"></input>
-            <input type="password" placeholder="Contraseña" id="passUser"></input>
+            <input type="text" class="form-control" placeholder="Usuario" id="nameUser"></input>
+            <input type="password" class="form-control" placeholder="Contraseña" id="passUser"></input>
         `,
         showCancelButton: true,
         confirmButtonText: `Enviar`,
@@ -118,6 +119,14 @@ function modalLogin(){
     }).then((result) => {
         let nameUser = document.getElementById("nameUser");
         let passUser = document.getElementById("passUser");
+
+        if(nameUser.value === '' || passUser.value === ''){
+            Swal.fire({
+                icon: "error",
+                title: "No puede ingresar campos vacios",
+            })
+            return;
+        }
 
         let userLogin = new Usuario(nameUser.value, passUser.value)
 
@@ -145,26 +154,30 @@ function modalNewUser(){
     Swal.fire({
         title: "Nuevo Usuario",
         html: `
-            <input type="text" placeholder="Usuario" id="newNameUser"></input>
-            <input type="password" placeholder="Contraseña" id="newPassUser"></input>
-            <input type="password" placeholder="Contraseña" id="validatePassUser"></input>
+            <input type="text" class="form-control" placeholder="Usuario" id="newNameUser"></input>
+            <input type="password" class="form-control" placeholder="Contraseña" id="newPassUser"></input>
+            <input type="password" class="form-control" placeholder="Contraseña" id="validatePassUser"></input>
         `,
         showCancelButton: true,
         confirmButtonText: `Enviar`,
         cancelButtonText:`Cancelar`
     }).then((result)=>{
-        let newNameUser = document.getElementById("newNameUser");
-        let newPassUser = document.getElementById("newPassUser");
-        let validatePassUser = document.getElementById("validatePassUser");
+        let newNameUser = document.getElementById("newNameUser").value;
+        let newPassUser = document.getElementById("newPassUser").value;
+        let validatePassUser = document.getElementById("validatePassUser").value;
+        
+        if(newNameUser === '' || newPassUser === ''){
+            Swal.fire({
+                icon: "error",
+                title: "No puede ingresar campos vacios",
+            })
+            return;
+        }
 
         if(result.isConfirmed){
-            if(validateNewPassword(newPassUser.value,validatePassUser.value)){
-                console.log("ta bom");
-                let userLogin = new Usuario(newNameUser.value, newPassUser.value)
+            if(validateNewPassword(newPassUser,validatePassUser)){
+                let userLogin = new Usuario(newNameUser, newPassUser)
                 userLogin.crearUsuario();
-
-            }else{
-                console.log("no ta bom")
             }
         }
     })
@@ -172,6 +185,10 @@ function modalNewUser(){
 
 function validateNewPassword(pass, validatePass){
     if(pass !== validatePass){
+        Swal.fire({
+            icon: "error",
+            title: "Las contraseñas deben ser iguales",
+        })
         return false;
     }
 
