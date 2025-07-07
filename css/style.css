@@ -4,8 +4,8 @@ body {
     margin:0;
 }
 
-p, h2,h3, h4 {
-    margin: 5px;
+p, h2, h3, h4 {
+    margin: 0px;
 }
 
 button{
@@ -131,9 +131,6 @@ button{
 
 .commonBtn{
     background-color: rgb(0 126 255 / 24%);
-    border: none;
-    height: 40px;
-    border-radius: 20px;
 
     &:hover{
         background-color: rgb(0 90 255 / 46%);

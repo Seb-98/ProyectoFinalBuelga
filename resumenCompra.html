@@ -20,15 +20,14 @@
 
     <div class="container">
         <div class="row">
-            
-            <div class="col-lg-4">
-                <h3>Resumen de tu compra</h3>
-                <p id="totalCarritoDetalle" class="itemDetail"></p>
+
+            <div class="col-lg-4 px-4">
+                <h3 class="text-center mb-3">Camisetas</h3>
                 <div class="detalleCarrito"></div>
             </div>
 
-            <div class="col-lg-4">
-                <h3>Datos del cliente</h3>
+            <div class="col-lg-4 px-5">
+                <h3 class="text-center mb-3">Datos del cliente</h3>
 
                 <div class="row gap-2">
                     <div class="col p-0">
@@ -76,13 +75,63 @@
             </div>
 
             <div class="col-lg-4">
-                <div class="row align-bottom">
-                    <div class="col">
-                        <button id="compraBtn" class="btn btn-success rounded-pill blue-btn">Realizar Compra</button>
+                <h3 class="text-center mb-3">Detalle de compra</h3>
+
+                <div class="container text-center">
+
+                    <div class="row mb-4">
+                        <p>Al realizar la compra nos comunicaremos para organizar detalles del envio.
+                            Enviaremos un mensaje de <span class="fw-bold">Whatsapp</span> al numero ingresado, en caso de no haber una respuesta en un lapso de 48hs,
+                            intentaremos seguir la comunicacion via <span class="fw-bold">Email</span>.
+                        </p>
+                        <p class="mt-3"><span>Gracias por confiar en nosotros</span></p> 
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            Envio
+                        </div>
+
+                        <div class="col">
+                            <span id="precioEnvio">$0</span>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            Impuesto
+                        </div>
+
+                        <div class="col">
+                            <span id="precioImpuesto">$0</span>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            Total Camisetas
+                        </div>
+
+                        <div class="col">
+                            <span id="totalCarritoDetalle"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            Total
+                        </div>
+
+                        <div class="col">
+                            <span id="totalCompra" class="itemDetail"></span>
+                        </div>
                     </div>
 
-                    <div class="col">
-                        <button id="cancelarBtn" class="action-compra rounded-pill danger-btn">Cancelar Compra</button>
+
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button id="btnCompra" class="btn btn-success rounded-pill blue-btn">Realizar Compra</button>
+                        </div>
+
+                        <div class="col">
+                            <button id="btnCancelar" class="action-compra rounded-pill danger-btn">Cancelar Compra</button>
+                        </div>
                     </div>
                 </div>
             </div>

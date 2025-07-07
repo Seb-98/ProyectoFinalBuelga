@@ -10,21 +10,26 @@ function mostrarCarritoDetalle() {
     let carritoSession = JSON.parse(sessionStorage.getItem('carritoStore'))
     let carritoValueSession = JSON.parse(sessionStorage.getItem('carritoValue'))
     let divDetalleCarrito = document.querySelector(".detalleCarrito")
-    let totalCarritoDetalle = document.getElementById('totalCarritoDetalle');
+    let precioImpuesto = Number((carritoValueSession * 0.20).toFixed(2)); //toFixed para 2 decimales y q no se vea feo
+    let precioEnvio = Number((carritoValueSession * 0.07).toFixed(2));
+    let precioTotal = carritoValueSession + precioImpuesto + precioEnvio;
     let detalle = "";
 
     carritoSession.forEach(element => {
         detalle += `
-            <div class="row mb-2">
-                <div class="col-lg-6">
+            <div class="row mb-3">
+                <div class="col-lg-5">
                     <img class="imgCamisetaResumen"src="${element.imagen}"></img>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7 ps-0">
                     <div class="">
-                        <p><span class="textCamiseta">${element.nombre}</span></p>
-                        <p><span class="textCamiseta">${element.año}</span></p>
-                        <p><span class="textCamiseta">${element.talle}</span></p>
-                        <span class="textCamiseta">$${element.precio}</span>
+                        <p><span>${element.nombre}</span></p>
+                        <p>
+                            <span>${element.año}</span>
+                            <span>Talle ${element.talle}</span>
+                        </p>
+                        <p><span class="itemDetail">$${element.precio}</span></p>
+                        <p><span>Cantidad ${element.cantidad}</span></p>
                     </div>                
                 </div> 
             </div>  
@@ -33,19 +38,23 @@ function mostrarCarritoDetalle() {
     });
 
     divDetalleCarrito.innerHTML = detalle;
-    totalCarritoDetalle.innerHTML = `Total $${carritoValueSession}`
+
+    document.getElementById('totalCarritoDetalle').innerHTML = `$${carritoValueSession}`
+    document.getElementById('precioEnvio').innerHTML = `$${precioEnvio}`
+    document.getElementById('precioImpuesto').innerHTML = `$${precioImpuesto}`
+    document.getElementById('totalCompra').innerHTML = `$${precioTotal}`
 }
 
 
 function realizarCompra() {
-    let compraBtn = document.getElementById('compraBtn');
+    let btnCompra = document.getElementById('btnCompra');
     let inputsCliente = document.getElementsByClassName('inputInfoCliente')
     let arrayInputs = Array.from(inputsCliente);
 
-    compraBtn.addEventListener('click', () => {
+    btnCompra.addEventListener('click', () => {
         let validacion = true;
+        
         arrayInputs.forEach(element => {
-
             if (element.value.trim() === "") {
                 validacion = false;
                 element.classList.add('inputError');
@@ -58,9 +67,15 @@ function realizarCompra() {
             Swal.fire({
                 icon: "success",
                 title: "Su compra ha sido realizada con exito",
+                confirmButtonText: `Volver al Menu`,
+            }).then((result)=>{
+                if(result.isConfirmed){
+                    sessionStorage.removeItem('carritoStore');
+                    sessionStorage.removeItem('carritoValue');
+                    window.location.href = "/index.html";
+                }
             })
         } else {
-
             Toastify({
                 text: "Debe completar todos los campos para continuar",
                 duration: 3000,
@@ -74,9 +89,9 @@ function realizarCompra() {
 }
 
 function cancelarCompra() {
-    let cancelarBtn = document.getElementById('cancelarBtn');
+    let btnCancelar = document.getElementById('btnCancelar');
 
-    cancelarBtn.addEventListener('click', () => {
+    btnCancelar.addEventListener('click', () => {
 
         Toastify({
             text: "Redireccionando...",

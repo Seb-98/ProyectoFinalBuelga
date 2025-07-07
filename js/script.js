@@ -70,9 +70,9 @@ function validarCarritoSession() {
 }
 
 function redirectCompra() {
-    let btnCompra = document.getElementById("btnCompra");
+    let btnContinuar = document.getElementById("btnContinuar");
 
-    btnCompra.addEventListener("click", (e) => {
+    btnContinuar.addEventListener("click", (e) => {
         e.preventDefault();
 
         let carritoValue = JSON.parse(sessionStorage.getItem('carritoValue'))
