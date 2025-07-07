@@ -15,9 +15,20 @@ function mostrarCarritoDetalle() {
 
     carritoSession.forEach(element => {
         detalle += `
-            <div class="cardCarrito"> 
-                <p>${element.nombre} - Talle ${element.talle} - ${element.año} - $${element.precio}</p>
-            </div>
+            <div class="row mb-2">
+                <div class="col-lg-6">
+                    <img class="imgCamisetaResumen"src="${element.imagen}"></img>
+                </div>
+                <div class="col-lg-6">
+                    <div class="">
+                        <p><span class="textCamiseta">${element.nombre}</span></p>
+                        <p><span class="textCamiseta">${element.año}</span></p>
+                        <p><span class="textCamiseta">${element.talle}</span></p>
+                        <span class="textCamiseta">$${element.precio}</span>
+                    </div>                
+                </div> 
+            </div>  
+                
         `;
     });
 

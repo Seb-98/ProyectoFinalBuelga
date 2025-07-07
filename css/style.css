@@ -100,7 +100,7 @@ button{
     }
 }
 
-.success-btn{
+.blue-btn{
     background-color:#421eb7e2;
     color:white;
 
@@ -124,11 +124,9 @@ button{
 }
 
 .action-compra{
-    width: 200px;
-    height: 30px;
     border-radius: 10px;
     border: none;
-    margin-bottom: 5px;
+    padding: 10px;
 }
 
 .commonBtn{
@@ -174,4 +172,15 @@ button{
 .center{
     display:flex;
     justify-content: center;
+}
+
+.imgCamisetaResumen{
+    width:auto;
+    height:150px
+}
+
+.detalleCarrito{
+    height:350px;
+    overflow-x:hidden;
+    overflow-y:auto;
 }

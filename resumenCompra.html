@@ -20,6 +20,13 @@
 
     <div class="container">
         <div class="row">
+            
+            <div class="col-lg-4">
+                <h3>Resumen de tu compra</h3>
+                <p id="totalCarritoDetalle" class="itemDetail"></p>
+                <div class="detalleCarrito"></div>
+            </div>
+
             <div class="col-lg-4">
                 <h3>Datos del cliente</h3>
 
@@ -66,20 +73,17 @@
                         <input type="text" class="inputInfoCliente form-control">
                     </div>
                 </div>
-
-                <button id="compraBtn" class="action-compra success-btn">Realizar Compra</button>
-                <button id="cancelarBtn" class="action-compra danger-btn">Cancelar Compra</button>
             </div>
 
             <div class="col-lg-4">
-                <h3>Resumen de tu compra</h3>
-                <p id="totalCarritoDetalle" class="itemDetail"></p>
-                <div class="detalleCarrito"></div>
-            </div>
+                <div class="row align-bottom">
+                    <div class="col">
+                        <button id="compraBtn" class="btn btn-success rounded-pill blue-btn">Realizar Compra</button>
+                    </div>
 
-            <div class="col-lg-4">
-                <div class="">
-
+                    <div class="col">
+                        <button id="cancelarBtn" class="action-compra rounded-pill danger-btn">Cancelar Compra</button>
+                    </div>
                 </div>
             </div>
         </div>

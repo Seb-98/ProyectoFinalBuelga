@@ -9,6 +9,7 @@ class Carrito {
         
         if(findCamisetaCarrito == null){
             let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === id)
+            console.log(findCamiseta,'findCamiseta')
 
             const camisetaParaCarrito = new Camiseta(
                 findCamiseta.id,
@@ -16,7 +17,8 @@ class Carrito {
                 findCamiseta.año,
                 findCamiseta.talle,
                 findCamiseta.precio,
-                1
+                1,
+                findCamiseta.imagen
             );
 
             this.userCarrito.push(camisetaParaCarrito);

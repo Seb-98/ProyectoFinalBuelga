@@ -1,13 +1,14 @@
 let stockCamisetas; //variable q se usa en carrito tambien
 
 class Camiseta {
-    constructor(id, nombre, año, talle, precio, cantidad) {
+    constructor(id, nombre, año, talle, precio, cantidad, imagen) {
         this.id = id;
         this.nombre = nombre;
         this.año = año;
         this.talle = talle;
         this.precio = precio;
         this.cantidad = cantidad;
+        this.imagen = imagen
     }
 }
 
