@@ -51,7 +51,7 @@ function validaUserLogin() {
     if (userSession != null) {
         loginDiv.classList.add('invisible');
         userMsg.classList.remove('invisible');
-        userMsg.innerHTML = `Bienvenido ${userSession.name}!`;
+        userMsg.innerHTML = `${userSession.name}`;
         logoutButton.classList.remove('invisible');
 
     }
@@ -110,33 +110,32 @@ function modalLogin(){
     Swal.fire({
         title: "Iniciar Sesion",
         html: `
-            <input type="text" class="form-control" placeholder="Usuario" id="nameUser"></input>
+            <input type="text" class="form-control mb-3" placeholder="Usuario" id="nameUser"></input>
             <input type="password" class="form-control" placeholder="Contraseña" id="passUser"></input>
         `,
         showCancelButton: true,
         confirmButtonText: `Enviar`,
         cancelButtonText:`Cancelar`
-    }).then((result) => {
-        let nameUser = document.getElementById("nameUser");
-        let passUser = document.getElementById("passUser");
-
-        if(nameUser.value === '' || passUser.value === ''){
-            Swal.fire({
-                icon: "error",
-                title: "No puede ingresar campos vacios",
-            })
-            return;
-        }
-
-        let userLogin = new Usuario(nameUser.value, passUser.value)
-
+    }).then(async (result) => {
+        
         if(result.isConfirmed){
+
+            let nameUser = document.getElementById("nameUser").value;
+            let passUser = document.getElementById("passUser").value;
+
+            let campoUsuarioValido = await validarCampoVacio(nameUser);
+            let campoPassValido = await validarCampoVacio(passUser);
+
+            if (!campoUsuarioValido || !campoPassValido) return;
+
+            let userLogin = new Usuario(nameUser, passUser)
+
             if (userLogin.obtenerUsuario()) {
                 loginDiv.classList.add('invisible');
                 userMsg.classList.remove('invisible');
                 logoutButton.classList.remove('invisible');
 
-                userMsg.innerHTML = `Bienvenido ${userLogin.name}!`;
+                userMsg.innerHTML = `${userLogin.name}`;
             }
         }
     });
@@ -154,27 +153,24 @@ function modalNewUser(){
     Swal.fire({
         title: "Nuevo Usuario",
         html: `
-            <input type="text" class="form-control" placeholder="Usuario" id="newNameUser"></input>
-            <input type="password" class="form-control" placeholder="Contraseña" id="newPassUser"></input>
-            <input type="password" class="form-control" placeholder="Contraseña" id="validatePassUser"></input>
+            <input type="text" class="form-control mb-3" placeholder="Usuario" id="newNameUser"></input>
+            <input type="password" class="form-control mb-3" placeholder="Contraseña" id="newPassUser"></input>
+            <input type="password" class="form-control mb-3" placeholder="Repetir Contraseña" id="validatePassUser"></input>
         `,
         showCancelButton: true,
         confirmButtonText: `Enviar`,
         cancelButtonText:`Cancelar`
-    }).then((result)=>{
+    }).then(async (result)=>{
         let newNameUser = document.getElementById("newNameUser").value;
         let newPassUser = document.getElementById("newPassUser").value;
         let validatePassUser = document.getElementById("validatePassUser").value;
-        
-        if(newNameUser === '' || newPassUser === ''){
-            Swal.fire({
-                icon: "error",
-                title: "No puede ingresar campos vacios",
-            })
-            return;
-        }
 
         if(result.isConfirmed){
+            let newNameUserValido = await validarCampoVacio(newNameUser);
+            let newPassUserValido = await validarCampoVacio(newPassUser);
+
+            if (!newNameUserValido || !newPassUserValido) return;
+
             if(validateNewPassword(newPassUser,validatePassUser)){
                 let userLogin = new Usuario(newNameUser, newPassUser)
                 userLogin.crearUsuario();
@@ -192,5 +188,16 @@ function validateNewPassword(pass, validatePass){
         return false;
     }
 
+    return true;
+}
+
+async function validarCampoVacio(valueValidate){
+    if(valueValidate.trim() === ''){
+        Swal.fire({
+            icon: "error",
+            title: "No puede ingresar campos vacios",
+        })
+        return false;
+    }
     return true;
 }

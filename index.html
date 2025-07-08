@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    <div class="headerCartel"><p class="textHeaderCartel">Envios a todo el pais!</p></div>
+    <div class="headerCartel">
+        <p class="textHeaderCartel">Envios a todo el pais!</p>
+    </div>
 
     <div class="headerOptions" id="headerOptions">
         <h2>Retro Futbol</h2>
@@ -28,21 +30,28 @@
         </div>
     </div>
 
-    <div class="containerPrincipal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="containerCamisetas" id="containerCamisetas"></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="containerCarrito p-3" id="containerCarrito">
 
-        <div class="containerColumns">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <span id="totalCarrito" class="itemDetail">Total: $0</span>
+                        </div>
+                        <div class="col">
+                            <button id="borrarCarrito" class="btn btn-danger rounded-pill">Borrar</button>
+                        </div>
+                        <div class="col">
+                            <button id="btnContinuar" class="btn btn-success blue-btn rounded-pill">Continuar</a>
+                        </div>
+                    </div>
 
-            <div class="containerCamisetas" id="containerCamisetas"></div>
-
-            <div class="containerCarrito" id="containerCarrito">
-                <span id="totalCarrito" class="itemDetail">Total: $0</span>
-
-                <div class="divButtonsCarrito">
-                    <button id="btnContinuar" class="btn btn-success blue-btn rounded-pill">Continuar</a>
-                    <button id="borrarCarrito" class="btn btn-danger rounded-pill">Borrar</button>
+                    <div id="containerItemsCarrito"></div>
                 </div>
-
-                <div id="containerItemsCarrito"></div>
             </div>
         </div>
     </div>

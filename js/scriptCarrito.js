@@ -47,15 +47,18 @@ class Carrito {
 
         this.userCarrito.forEach(item => {
             msjCarrito += `
-                <div class="cardCarrito" id="item-${item.id}">
-                    <p>
-                        ${item.nombre} - ${item.talle} - ${item.año} - $${item.precio}
-                        <button class="deleteItem danger-btn" value="${item.id}">X</button>
-                    </p>
-                    <div>
+            
+                <div class="row cardCarrito " id="item-${item.id}">
+                    <div class="col-lg-8">
+                        <span>${item.nombre} ${item.año} - ${item.talle} - $${item.precio}</span>
+                    </div>
+                    <div class="col-lg-3 p-0">
                         <button class="restCantItem" value="${item.id}">-</button>
                         <span class="cantItem">${item.cantidad}</span>
                         <button class="sumCantItem" value="${item.id}">+</button>
+                    </div>
+                    <div class="col-lg-1 p-0">
+                        <button class="deleteItem btn btn-danger rounded-pill" value="${item.id}">X</button>
                     </div>
                 </div>`;
         })
