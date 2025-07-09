@@ -27,6 +27,9 @@ button{
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    height:450px;
 }
 
 .containerCarrito {
@@ -36,7 +39,7 @@ button{
 }
 
 .cardCamiseta {
-    width: 250px;
+    width: 225px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px gray;
     background-color: #006aff38;
@@ -44,10 +47,11 @@ button{
 }
 
 .cardCarrito {
-    border: 1px solid black;
-    padding: 10px;
-    margin-top: 10px;
+    border: 1px solid grey;
+    padding: 10px 15px;
     border-radius: 10px;
+    margin-top: 10px;
+    background-color: rgb(255 255 255);
 }
 
 .headerOptions{
@@ -62,7 +66,6 @@ button{
     display:none;
 }
 
-
 .inputInfoCliente{
     margin-bottom: 10px;
 }
@@ -73,7 +76,7 @@ button{
 
 .imgCamiseta{
     height: 250px;
-    width: 250px;
+    width: 225px;
 }
 
 .big-btn{
@@ -99,16 +102,11 @@ button{
 
     &:hover{
         background-color: #443575;
+        color:white;
     }
 }
 
-
-
 .itemDetail{
-    font-weight: bold;
-}
-
-.labelInput{
     font-weight: bold;
 }
 
@@ -172,12 +170,18 @@ button{
 }
 
 .sumCantItem,
-.restCantItem{
-    border:none;
-    border-radius:10px;
-    width:25px;
+.restCantItem {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 50%;
 
     &:hover{
         background-color: rgb(0 90 255 / 46%);
     }
+}
+
+.msgCompra{
+    background-color: #486de833;
+    border-radius:10px
 }

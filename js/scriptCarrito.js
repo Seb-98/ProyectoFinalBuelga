@@ -6,10 +6,10 @@ class Carrito {
 
     cargarCarrito(id) {
         let findCamisetaCarrito = this.encontrarItemCarrito(id);
-        
-        if(findCamisetaCarrito == null){
+
+        if (findCamisetaCarrito == null) {
             let findCamiseta = stockCamisetas.find(camiseta => camiseta.id === id)
-            console.log(findCamiseta,'findCamiseta')
+            console.log(findCamiseta, 'findCamiseta')
 
             const camisetaParaCarrito = new Camiseta(
                 findCamiseta.id,
@@ -23,13 +23,13 @@ class Carrito {
 
             this.userCarrito.push(camisetaParaCarrito);
             this.valorCarrito += camisetaParaCarrito.precio;
-            
+
             sessionStorage.setItem('carritoStore', JSON.stringify(this.userCarrito));
             sessionStorage.setItem('carritoValue', this.valorCarrito);
 
             this.mostrarCarrito()
         }
-        else{
+        else {
             Toastify({
                 text: "Ya agrego esta camiseta",
                 duration: 2000,
@@ -48,17 +48,15 @@ class Carrito {
         this.userCarrito.forEach(item => {
             msjCarrito += `
             
-                <div class="row cardCarrito " id="item-${item.id}">
-                    <div class="col-lg-8">
-                        <span>${item.nombre} ${item.año} - ${item.talle} - $${item.precio}</span>
+                <div class="cardCarrito" id="item-${item.id}">
+                    <div>
+                        <span><strong>${item.nombre}</strong> ${item.año} - ${item.talle} - $${item.precio}</span>
+                        <button class="deleteItem btn btn-danger btn-sm rounded-pill" value="${item.id}">X</button>
                     </div>
-                    <div class="col-lg-3 p-0">
-                        <button class="restCantItem" value="${item.id}">-</button>
+                    <div>
+                        <button class="restCantItem btn btn-outline-primary" value="${item.id}">-</button>
                         <span class="cantItem">${item.cantidad}</span>
-                        <button class="sumCantItem" value="${item.id}">+</button>
-                    </div>
-                    <div class="col-lg-1 p-0">
-                        <button class="deleteItem btn btn-danger rounded-pill" value="${item.id}">X</button>
+                        <button class="sumCantItem btn btn-outline-primary" value="${item.id}">+</button>
                     </div>
                 </div>`;
         })
@@ -94,7 +92,7 @@ class Carrito {
         totalCarrito.innerHTML = `Total: $${this.valorCarrito}`;
     }
 
-    sumarCantidad(id){
+    sumarCantidad(id) {
         let itemCamiseta = this.encontrarItemCarrito(id);
 
         if (itemCamiseta) {
@@ -107,22 +105,22 @@ class Carrito {
         }
     }
 
-    restarCantidad(id){
+    restarCantidad(id) {
         let itemCamiseta = this.encontrarItemCarrito(id);
 
-        if(itemCamiseta){
+        if (itemCamiseta) {
             itemCamiseta.cantidad -= 1;
             this.valorCarrito -= itemCamiseta.precio;
 
-            if(itemCamiseta.cantidad == 0){
-               this.borrarObjItemCarrito(id); 
+            if (itemCamiseta.cantidad == 0) {
+                this.borrarObjItemCarrito(id);
             }
 
             this.mostrarCarrito();
         }
     }
 
-    encontrarItemCarrito(id){
+    encontrarItemCarrito(id) {
         return this.userCarrito.find(item => item.id === id);
     }
 }
@@ -139,7 +137,7 @@ function borrarItemCarrito(arrayCarrito) {
     })
 }
 
-function sumarItemCarrito(arrayCarrito){
+function sumarItemCarrito(arrayCarrito) {
     let sumBtn = document.querySelectorAll('.sumCantItem');
     let sumBtnArray = Array.from(sumBtn);
 
@@ -150,12 +148,12 @@ function sumarItemCarrito(arrayCarrito){
     })
 }
 
-function restarItemCarrito(arrayCarrito){
+function restarItemCarrito(arrayCarrito) {
     let restBtn = document.querySelectorAll(".restCantItem");
     let restBtnArray = Array.from(restBtn);
 
     restBtnArray.forEach(e => {
-        e.addEventListener("click", () =>{
+        e.addEventListener("click", () => {
             arrayCarrito.restarCantidad(e.value);
         })
     })

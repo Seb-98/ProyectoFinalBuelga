@@ -17,20 +17,18 @@ function mostrarCarritoDetalle() {
 
     carritoSession.forEach(element => {
         detalle += `
-            <div class="row mb-3">
+            <div class="row mb-3 border">
                 <div class="col-lg-5">
                     <img class="imgCamisetaResumen"src="${element.imagen}"></img>
                 </div>
-                <div class="col-lg-7 ps-0">
-                    <div class="">
-                        <p><span>${element.nombre}</span></p>
+                <div class="col-lg-7 d-flex flex-column align-items-center justify-content-top gap-3">
+                        <p><span class="fw-bold">${element.nombre}</span></p>
                         <p>
                             <span>${element.año}</span>
                             <span>Talle ${element.talle}</span>
                         </p>
-                        <p><span class="itemDetail">$${element.precio}</span></p>
+                        <p><span class="fw-bold">$${element.precio}</span></p>
                         <p><span>Cantidad ${element.cantidad}</span></p>
-                    </div>                
                 </div> 
             </div>  
                 
