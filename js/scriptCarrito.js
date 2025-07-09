@@ -34,7 +34,7 @@ class Carrito {
                 text: "Ya agrego esta camiseta",
                 duration: 2000,
                 style: {
-                    background: "green",
+                    background: "red",
                 }
             }).showToast();
         }

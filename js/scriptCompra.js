@@ -95,7 +95,7 @@ function cancelarCompra() {
             text: "Redireccionando...",
             duration: 2000,
             style: {
-                background: "yellow",
+                background: "#e3e322",
                 color: "black"
             }
         }).showToast();

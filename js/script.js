@@ -6,13 +6,15 @@ let logoutButton = document.getElementById("logoutButton");
 
 principal();
 
-function principal() {
+async function principal() {
     setUsers()
     validarCarritoSession();
     validaUserLogin();
     loginUser();
     logoutUser();
     crearUsuario();
+    await getDataCamisetas();
+    ordenarCamisetas();
     mostrarCamisetas();
     borrarCarrito();
     redirectCompra();
@@ -93,7 +95,7 @@ function redirectCompra() {
                 text: "Cargando informacion...",
                 duration: 2000,
                 style: {
-                    background: "yellow",
+                    background: "#e3e322",
                     color: "black"
                 }
             }).showToast();

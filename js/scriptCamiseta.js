@@ -12,41 +12,33 @@ class Camiseta {
     }
 }
 
-async function mostrarCamisetas() {
+function mostrarCamisetas() {
     let mensajeCamisetas = "";
 
     let containerCamisetas = document.getElementById('containerCamisetas');
+    containerCamisetas.innerHTML = '';
 
-    try {
-        let response = await fetch("./data.json");
-        stockCamisetas = await response.json();
+    stockCamisetas.forEach(element => {
 
-        stockCamisetas.forEach(element => {
-
-            mensajeCamisetas += `
-                <div class="cardCamiseta" id="${element.id}">
-                <img class="imgCamiseta"src="${element.imagen}"></img>
-                    <div class="p-2">
-                        <p><span class="itemDetail">Equipo:</span> ${element.nombre}</p>
-                        <p><span class="itemDetail">Temporada:</span> ${element.año}</p>
-                        <p><span class="itemDetail">Talle:</span> ${element.talle}</p>
-                        <p><span class="itemDetail">Precio:</span> $${element.precio}</p>
-                    </div>
-                    <div class="text-center">
-                        <button class="selectCamiseta btn blue-btn rounded-pill">Agregar</button>
-                    </div>
+        mensajeCamisetas += `
+            <div class="cardCamiseta" id="${element.id}">
+            <img class="imgCamiseta"src="${element.imagen}"></img>
+                <div class="p-2">
+                    <p><span class="itemDetail">Equipo:</span> ${element.nombre}</p>
+                    <p><span class="itemDetail">Temporada:</span> ${element.año}</p>
+                    <p><span class="itemDetail">Talle:</span> ${element.talle}</p>
+                    <p><span class="itemDetail">Precio:</span> $${element.precio}</p>
                 </div>
-            `;
-        });
+                <div class="text-center">
+                    <button class="selectCamiseta btn blue-btn rounded-pill">Agregar</button>
+                </div>
+            </div>
+        `;
+    });
 
-        containerCamisetas.innerHTML = mensajeCamisetas;
+    containerCamisetas.innerHTML = mensajeCamisetas;
 
-        selectCamiseta();
-
-    } catch (error) {
-        console.error("Error al obtener los datos de camisetas:", error);
-    }
-
+    selectCamiseta();
 }
 
 function selectCamiseta() {
@@ -60,5 +52,42 @@ function selectCamiseta() {
                 objectCarrito.cargarCarrito(e.target.parentNode.parentNode.id);
             }
         })
+    })
+}
+
+async function getDataCamisetas(){
+    try {
+        let response = await fetch("./data.json");
+        stockCamisetas = await response.json(); 
+    }
+    catch(error){
+        console.log(error,'error al cargar camisetas')
+    }
+}
+
+function ordenarCamisetas(){
+    let mayorPrecioBtn = document.getElementById('ordenarPrecioMayor')
+    let menorPrecioBtn = document.getElementById('ordenarPrecioMenor')
+    let añoMayorBtn = document.getElementById('ordenarAñoMayor')
+    let añoMenorBtn = document.getElementById('ordenarAñoMenor')
+
+    mayorPrecioBtn.addEventListener("click",() =>{
+        stockCamisetas.sort((a, b) => b.precio - a.precio)
+        mostrarCamisetas();
+    })
+
+    menorPrecioBtn.addEventListener("click",() =>{
+        stockCamisetas.sort((a, b) => a.precio - b.precio);
+        mostrarCamisetas();
+    })
+
+    añoMayorBtn.addEventListener("click",() =>{
+        stockCamisetas.sort((a, b) => a.año - b.año);
+        mostrarCamisetas();
+    })
+    
+    añoMenorBtn.addEventListener("click",() =>{
+        stockCamisetas.sort((a, b) => b.año - a.año)
+        mostrarCamisetas();
     })
 }
