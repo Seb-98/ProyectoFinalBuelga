@@ -19,7 +19,7 @@ function mostrarCarritoDetalle() {
         detalle += `
             <div class="row mb-3 border">
                 <div class="col-lg-5">
-                    <img class="imgCamisetaResumen"src="${element.imagen}"></img>
+                    <img class="imgCamisetaResumen" src="${element.imagen}"></img>
                 </div>
                 <div class="col-lg-7 d-flex flex-column align-items-center justify-content-top gap-3">
                         <p><span class="fw-bold">${element.nombre}</span></p>

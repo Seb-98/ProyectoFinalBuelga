@@ -1,25 +1,11 @@
 body {
     background-color: rgb(255 255 255);
     font-family: system-ui;
-    margin:0;
+    margin: 0;
 }
 
-p, h2, h3, h4 {
+p,h2,h3,h4 {
     margin: 0px;
-}
-
-button{
-    cursor:pointer;
-    font-family: system-ui;
-}
-
-.containerPrincipal{
-    margin: 15px 30px;
-}
-
-.containerColumns {
-    display: flex;
-    align-items: flex-start;
 }
 
 .containerCamisetas {
@@ -27,9 +13,9 @@ button{
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    overflow-x:hidden;
-    overflow-y:auto;
-    height:450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 450px;
 }
 
 .containerCarrito {
@@ -54,7 +40,7 @@ button{
     background-color: rgb(255 255 255);
 }
 
-.headerOptions{
+.headerOptions {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,86 +48,57 @@ button{
     background-color: #486de833;
     margin-bottom: 20px;
 }
-.invisible{
-    display:none;
+
+.invisible {
+    display: none;
 }
 
-.inputInfoCliente{
+.inputInfoCliente {
     margin-bottom: 10px;
 }
 
-.inputError{
+.inputError {
     border: 1px solid red;
 }
 
-.imgCamiseta{
+.imgCamiseta {
     height: 250px;
     width: 225px;
 }
 
-.big-btn{
-    border-radius: 10px;
-    border: none;
-    height: 30px;
-    width: 100px;
-    max-width: 150px;
-}
+.blue-btn {
+    background-color: #421eb7e2;
+    color: white;
 
-.danger-btn{
-    background-color:rgba(208, 0, 0, 0.817);
-    color:white;
-
-    &:hover{
-        background-color: rgb(199, 25, 25);
-    }
-}
-
-.blue-btn{
-    background-color:#421eb7e2;
-    color:white;
-
-    &:hover{
+    &:hover {
         background-color: #443575;
-        color:white;
+        color: white;
     }
 }
 
-.itemDetail{
+.itemDetail {
     font-weight: bold;
 }
 
-.action-compra{
-    border-radius: 10px;
-    border: none;
-    padding: 10px;
-}
-
-.commonBtn{
+.commonBtn {
     background-color: rgb(0 126 255 / 24%);
 
-    &:hover{
+    &:hover {
         background-color: rgb(0 90 255 / 46%);
     }
 }
 
-.divButtonsCarrito{
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-}
-
-.headerCartel{
+.headerCartel {
     display: flex;
     justify-content: center;
-    background-color:black;
+    background-color: black;
 }
 
-.textHeaderCartel{
+.textHeaderCartel {
     color: #fff;
     margin: 10px;
     font-size: 15px;
 }
-
 
 .userDiv {
     display: flex;
@@ -149,24 +106,15 @@ button{
     gap: 10px;
 }
 
-.dataCamiseta{
-    padding:5px;
+.imgCamisetaResumen {
+    width: auto;
+    height: 150px
 }
 
-.center{
-    display:flex;
-    justify-content: center;
-}
-
-.imgCamisetaResumen{
-    width:auto;
-    height:150px
-}
-
-.detalleCarrito{
-    height:350px;
-    overflow-x:hidden;
-    overflow-y:auto;
+.detalleCarrito {
+    height: 350px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .sumCantItem,
@@ -176,12 +124,12 @@ button{
     padding: 0;
     border-radius: 50%;
 
-    &:hover{
+    &:hover {
         background-color: rgb(0 90 255 / 46%);
     }
 }
 
-.msgCompra{
+.msgCompra {
     background-color: #486de833;
-    border-radius:10px
+    border-radius: 10px
 }
