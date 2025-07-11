@@ -112,8 +112,8 @@ function modalLogin(){
     Swal.fire({
         title: "Iniciar Sesion",
         html: `
-            <input type="text" class="form-control mb-3" placeholder="Usuario" id="nameUser"></input>
-            <input type="password" class="form-control" placeholder="Contraseña" id="passUser"></input>
+            <input type="text" class="form-control mb-3" placeholder="Usuario" id="nameUser" value="Lionel Messi"></input>
+            <input type="password" class="form-control" placeholder="Contraseña" id="passUser" value="messi"></input>
         `,
         showCancelButton: true,
         confirmButtonText: `Enviar`,

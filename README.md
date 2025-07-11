@@ -1,9 +1,9 @@
 # RetroFutbol
 <!-- 
 USUARIOS DE PRUEBA
-USER: test - PASS: test
-USER: demo - PASS: demo
-USER: prueba - PASS: prueba
+USER: Lionel Messi - PASS: messi
+USER: Profe Igna - PASS: igna
+USER: Profe David - PASS: david
 -->
 
 <!-- 

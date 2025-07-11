@@ -35,9 +35,9 @@ class Usuario {
 }
 
 let arrayUsers = [
-    new Usuario("test", "test"),
-    new Usuario("demo", "demo"),
-    new Usuario("prueba", "prueba"),
+    new Usuario("Lionel Messi", "messi"),
+    new Usuario("Profe Igna", "igna"),
+    new Usuario("Profe David", "david"),
 ]
 
 function setUsers() {

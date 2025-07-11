@@ -30,24 +30,28 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="mb-2">
-            <button id="ordenarPrecioMayor" class="btn rounded-pill btn-light">Mayor Precio</button>
-            <button id="ordenarPrecioMenor" class="btn rounded-pill btn-light">Menor Precio</button>
-            <button id="ordenarAñoMayor" class="btn rounded-pill btn-light">Mas Antigua</button>
-            <button id="ordenarAñoMenor" class="btn rounded-pill btn-light">Menos Antigua</button>
-            
-            <span>Talle</span>
-            <select id="filtroTalle">
-                <option value="-1">Mostrar Todo</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-            </select>
-        </div>
-            
+    <div class="container mb-5">
         <div class="row">
             <div class="col-lg-8">
+
+                <div class="row mb-3">
+                    <div class="col-9">
+                        <button id="ordenarPrecioMayor" class="btn rounded-pill btn-light">Mayor Precio</button>
+                        <button id="ordenarPrecioMenor" class="btn rounded-pill btn-light">Menor Precio</button>
+                        <button id="ordenarAñoMayor" class="btn rounded-pill btn-light">Mas Antigua</button>
+                        <button id="ordenarAñoMenor" class="btn rounded-pill btn-light">Menos Antigua</button>
+                    </div>
+                    
+                    <div class="col-3 mt-1">
+                        <select id="filtroTalle" class="form-select">
+                            <option value="-1">Cualquier Talle</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="containerCamisetas" id="containerCamisetas"></div>
             </div>
             <div class="col-lg-4">
