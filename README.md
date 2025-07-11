@@ -1,9 +1,26 @@
 # RetroFutbol
 <!-- 
-Los usuarios de prueba son
-user: test pass:test
-user: demo pass:demo
-user: prueba pass:prueba
+USUARIOS DE PRUEBA
+USER: test - PASS: test
+USER: demo - PASS: demo
+USER: prueba - PASS: prueba
+-->
 
-se tiene que iniciar sesion para cargar camisetas al carrito
+<!-- 
+-Para iniciar sesion o crear usuario, no puede ingresar valores vacios, sino aparecera un cartel de error
+-Al crear usuario las contraseñas deben ser iguales
+-->
+
+<!-- 
+el filtro de talles no es simultaneo con el resto de lso filtros
+-->
+
+<!-- 
+-Para seleccionar camietas debe ingresar sesion primero
+-Al presionar Continuar, ya no se pueden modificar las camisetas, solo se pueden hacer desde el incio
+-->
+
+<!-- 
+-Para dar de alta la compra, los inputs de Datos del Cliente no pueden estar vacios, sino aparecera un cartel de error.
+Todos los campos sson obligatorios
 -->

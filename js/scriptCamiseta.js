@@ -12,13 +12,20 @@ class Camiseta {
     }
 }
 
-function mostrarCamisetas() {
+function mostrarCamisetas(newArrayCamisetas) {
     let mensajeCamisetas = "";
 
     let containerCamisetas = document.getElementById('containerCamisetas');
     containerCamisetas.innerHTML = '';
 
-    stockCamisetas.forEach(element => {
+    let arrayCamisetas;
+    if(newArrayCamisetas != null){
+        arrayCamisetas = newArrayCamisetas;
+    }else{
+        arrayCamisetas = stockCamisetas; //variable q viene de la carga de datos en getDataCamisetas()
+    }
+
+    arrayCamisetas.forEach(element => {
 
         mensajeCamisetas += `
             <div class="cardCamiseta" id="${element.id}">
@@ -89,5 +96,21 @@ function ordenarCamisetas(){
     añoMenorBtn.addEventListener("click",() =>{
         stockCamisetas.sort((a, b) => b.año - a.año)
         mostrarCamisetas();
+    })
+
+    let select = document.getElementById('filtroTalle');
+
+    select.addEventListener("change",(e) =>{
+        console.log(e.target.value)
+        if(e.target.value !== '-1'){
+            console.log(stockCamisetas.filter(item => item.talle == e.target.value))
+            let filterArray = stockCamisetas.filter(item => item.talle == e.target.value)
+            mostrarCamisetas(filterArray);
+        }
+        else{
+            console.log("llega")
+            console.log(stockCamisetas)
+            mostrarCamisetas();
+        }
     })
 }

@@ -4,7 +4,7 @@
     "nombre": "San Lorenzo",
     "año": 2025,
     "talle": "S",
-    "precio": 9000,
+    "precio": 35000,
     "imagen": "images/san-lorenzo-2025.webp"
   },
   {
@@ -12,47 +12,47 @@
     "nombre": "San Lorenzo",
     "año": 2025,
     "talle": "M",
-    "precio": 9000,
+    "precio": 35000,
     "imagen": "images/san-lorenzo-2025.webp"
   },
   {
     "id": "cmst3",
-    "nombre": "San Lorenzo",
-    "año": 2025,
-    "talle": "L",
-    "precio": 9000,
-    "imagen": "images/san-lorenzo-2025.webp"
+    "nombre": "Brasil",
+    "año": 2002,
+    "talle": "M",
+    "precio": 27000,
+    "imagen": "images/brasil-2002.webp"
   },
   {
     "id": "cmst4",
     "nombre": "Boca",
     "año": 2023,
-    "talle": "S",
-    "precio": 10000,
+    "talle": "M",
+    "precio": 44000,
     "imagen": "images/boca-2025.webp"
   },
   {
     "id": "cmst5",
     "nombre": "Boca",
     "año": 2023,
-    "talle": "M",
-    "precio": 10000,
+    "talle": "L",
+    "precio": 44000,
     "imagen": "images/boca-2025.webp"
   },
   {
     "id": "cmst6",
-    "nombre": "Boca",
-    "año": 2023,
-    "talle": "L",
-    "precio": 10000,
-    "imagen": "images/boca-2025.webp"
+    "nombre": "Barcelona",
+    "año": 2009,
+    "talle": "M",
+    "precio": 21000,
+    "imagen": "images/barcelona-2009.webp"
   },
   {
     "id": "cmst7",
     "nombre": "River Alt.",
     "año": 2025,
     "talle": "S",
-    "precio": 8000,
+    "precio": 30000,
     "imagen": "images/river-alt-2025.webp"
   },
   {
@@ -60,23 +60,23 @@
     "nombre": "River Alt.",
     "año": 2025,
     "talle": "M",
-    "precio": 8000,
+    "precio": 30000,
     "imagen": "images/river-alt-2025.webp"
   },
   {
     "id": "cmst9",
-    "nombre": "River Alt.",
-    "año": 2025,
+    "nombre": "Argentina Sup.",
+    "año": 1994,
     "talle": "L",
-    "precio": 8000,
-    "imagen": "images/river-alt-2025.webp"
+    "precio": 28000,
+    "imagen": "images/argentina-suplente-1994.webp"
   },
   {
     "id": "cmst10",
     "nombre": "Independiente",
     "año": 2024,
     "talle": "S",
-    "precio": 7000,
+    "precio": 37000,
     "imagen": "images/independiente-2025.webp"
   },
   {
@@ -84,40 +84,40 @@
     "nombre": "Independiente",
     "año": 2024,
     "talle": "M",
-    "precio": 7000,
+    "precio": 37000,
     "imagen": "images/independiente-2025.webp"
   },
   {
     "id": "cmst12",
-    "nombre": "Independiente",
-    "año": 2024,
-    "talle": "L",
-    "precio": 7000,
-    "imagen": "images/independiente-2025.webp"
+    "nombre": "Boca",
+    "año": 2001,
+    "talle": "M",
+    "precio": 31000,
+    "imagen": "images/boca-2001.webp"
   },
   {
     "id": "cmst13",
     "nombre": "Racing",
     "año": 2025,
     "talle": "S",
-    "precio": 7000,
+    "precio": 17000,
     "imagen": "images/racing-2025.webp"
   },
   {
     "id": "cmst14",
-    "nombre": "Racing",
-    "año": 2025,
+    "nombre": "Milan",
+    "año": 2006,
     "talle": "M",
     "precio": 7000,
-    "imagen": "images/racing-2025.webp"
+    "imagen": "images/milan-2006.webp"
   },
   {
     "id": "cmst15",
-    "nombre": "Racing",
-    "año": 2025,
+    "nombre": "Man. United",
+    "año": 2008,
     "talle": "L",
-    "precio": 7000,
-    "imagen": "images/racing-2025.webp"
+    "precio": 25000,
+    "imagen": "images/manchester-united-2008.webp"
   },
   {
     "id": "cmst16",
@@ -132,7 +132,7 @@
     "nombre": "Argentina",
     "año": 2022,
     "talle": "M",
-    "precio": 12000,
+    "precio": 42000,
     "imagen": "images/argentina-2022.webp"
   },
   {
@@ -140,7 +140,7 @@
     "nombre": "Argentina",
     "año": 2022,
     "talle": "L",
-    "precio": 12000,
+    "precio": 42000,
     "imagen": "images/argentina-2022.webp"
   }
 ]
